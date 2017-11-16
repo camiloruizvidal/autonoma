@@ -1,0 +1,626 @@
+[09-Oct-2017 10:09:15 America/Bogota] PHP Fatal error:  Class 'frontend\models\UserModel' not found in /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/models/PasswordResetRequestForm.php on line 40
+[09-Oct-2017 10:10:13 America/Bogota] PHP Fatal error:  Class 'frontend\models\UserStatus' not found in /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/models/PasswordResetRequestForm.php on line 40
+[24-Oct-2017 14:40:33 America/Bogota] PHP Parse error:  syntax error, unexpected ']' in /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/views/director-proyecto/_form.php on line 18
+[24-Oct-2017 14:40:43 America/Bogota] PHP Parse error:  syntax error, unexpected ']' in /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/views/director-proyecto/_form.php on line 18
+[24-Oct-2017 14:42:20 America/Bogota] PHP Parse error:  syntax error, unexpected ']' in /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/views/director-proyecto/_form.php on line 18
+[24-Oct-2017 14:42:26 America/Bogota] PHP Parse error:  syntax error, unexpected ']' in /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/views/director-proyecto/_form.php on line 18
+[07-Nov-2017 15:39:20 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/fal...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('4')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '986',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary7Wc9L9J9XZMjxCPY',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=e98163dc34c84bd4df85eaa0deb4a2617965b350bd65703543a8a452c1c7d2eca%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22HqKmzlJtmyVr2p00or-PztU0Hq3pOs-s%22%3B%7D; advanced-frontend=cdokf419k0vvsa0dqjpuuvmcj2; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=4',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '191.102.113.158',
+    'REMOTE_PORT' => '60372',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend/web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend/web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'WgHTp2HDZ9eDFyw2x@ruHAAAAMA',
+    'PHP_SELF' => '/autonoma/frontend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510069160.194355010986328125,
+    'REQUEST_TIME' => 1510069160,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=4',
+    ],
+    'argc' => 1,
+]
+[07-Nov-2017 15:39:34 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/fal...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('4')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '986',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryx7BG6SLylkJ5l9gf',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=e98163dc34c84bd4df85eaa0deb4a2617965b350bd65703543a8a452c1c7d2eca%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22HqKmzlJtmyVr2p00or-PztU0Hq3pOs-s%22%3B%7D; advanced-frontend=cdokf419k0vvsa0dqjpuuvmcj2; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=4',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '191.102.113.158',
+    'REMOTE_PORT' => '60435',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend/web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend/web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'WgHTtnrEVwywRvpMVLiemQAAAFA',
+    'PHP_SELF' => '/autonoma/frontend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510069174.8562209606170654296875,
+    'REQUEST_TIME' => 1510069174,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=4',
+    ],
+    'argc' => 1,
+]
+[07-Nov-2017 15:40:46 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/gfh...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('5')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '847',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryswnjf4xBgLnCNwwg',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=e98163dc34c84bd4df85eaa0deb4a2617965b350bd65703543a8a452c1c7d2eca%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22HqKmzlJtmyVr2p00or-PztU0Hq3pOs-s%22%3B%7D; advanced-frontend=cdokf419k0vvsa0dqjpuuvmcj2; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=5',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=5',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '191.102.113.158',
+    'REMOTE_PORT' => '60439',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=5',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend/web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend/web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'WgHT-sajZP0gr3tksi2jWgAAAI0',
+    'PHP_SELF' => '/autonoma/frontend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510069246.7896230220794677734375,
+    'REQUEST_TIME' => 1510069246,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=5',
+    ],
+    'argc' => 1,
+]
+[07-Nov-2017 19:05:19 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/fal...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('4')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '17580',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary7sL3RCArP0AmxYsZ',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=3de96a709531f512a2a8733ff551a351cb34ec1465bf00d87a4182b07a531ef4a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%225t1V3iFEva8Sc8aG3c3zYNjooy1ZJoXL%22%3B%7D; advanced-frontend=qjafv2r7av1qed35mvc6ovqcb6; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=4',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '191.102.113.158',
+    'REMOTE_PORT' => '61880',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend/web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend/web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'WgID7f-LF5Bx2vnBHIMoegAAAEU',
+    'PHP_SELF' => '/autonoma/frontend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510081519.2615680694580078125,
+    'REQUEST_TIME' => 1510081519,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=4',
+    ],
+    'argc' => 1,
+]
+[08-Nov-2017 13:32:00 UTC] PHP Fatal error:  Call to a member function save() on null in /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php on line 158
+[09-Nov-2017 16:05:36 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/fal...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('4')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '873',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundarytqt1KbPAk967r0gf',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=32cdf7799773bdece5dc0f86f513c79b545f45a3fca7b5eb03c6d2e091906ddba%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%221bSWAvqnWs-qKK0VmISZoBqA4K6phWAG%22%3B%7D; advanced-frontend=5j4sscp54jnaiigse1gckge023; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=4',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '191.102.113.158',
+    'REMOTE_PORT' => '50427',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend/web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend/web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'WgR8z9LghtjNu8o-uf8oEQAAAFo',
+    'PHP_SELF' => '/autonoma/frontend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510243536.109674930572509765625,
+    'REQUEST_TIME' => 1510243536,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=4',
+    ],
+    'argc' => 1,
+]
+[09-Nov-2017 22:18:56 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/fal...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('4')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '868',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundarywIYqM7meogtjhlqP',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=39e4bfabe05940a695be31e4784b34f22d5179deb4c5d340fe25eb397ce164eea%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22hCER9e-kv0U5CwKYeD8Iged_fYNuw3OQ%22%3B%7D; advanced-frontend=mij8agk92r6btcspc7ccnfie24; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=4',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '191.102.113.158',
+    'REMOTE_PORT' => '49649',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend/web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend/web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'WgTUTx5cu1Nfo6kQCnyR7wAAAB0',
+    'PHP_SELF' => '/autonoma/frontend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510265936.4099500179290771484375,
+    'REQUEST_TIME' => 1510265936,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=4',
+    ],
+    'argc' => 1,
+]
+[14-Nov-2017 08:47:19 America/Bogota] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/fal...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('4')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '854',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary4LRlNgljyp2u5wei',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-419,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=f24413c67bdf710235c45f9265a41a6bc3445152f7e95ed6b51e2740f3d9e659a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22da2c74k0G6WfiaO0D7EN-CTzwKZnyUlb%22%3B%7D; advanced-frontend=st98b0ql4qdntjitm9hrttjov1; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=4',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '191.102.113.158',
+    'REMOTE_PORT' => '59110',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend/web/index.php?r=revisionp%2Fupdate&id=4',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend/web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend/web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'Wgrz5jUk1lcAMfEJKdMdcAAAAB4',
+    'PHP_SELF' => '/autonoma/frontend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510667238.9691009521484375,
+    'REQUEST_TIME' => 1510667238,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=4',
+    ],
+    'argc' => 1,
+]
+[14-Nov-2017 21:13:04 America/Bogota] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\web\UploadedFile::save() does not exist' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\\web\\Uploade...', 'save')
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\\web\\Uploade...')
+#2 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/home/soluci12/...', 158, 'yii\\web\\Uploade...', 'save', Array, 3)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(328): require('/home/soluci12/...')
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/soluci12/...', Array)
+#9 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\web\UploadedFile::save()' in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Object.php:220
+Stack trace:
+#0 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\base\Object->__call('save', Array)
+#1 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/controllers/RevisionpController.php(158): yii\web\UploadedFile->save('RevisionesP/fal...')
+#2 [internal function]: frontend\controllers\RevisionpController->actionUpdate('4')
+#3 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('update', Array)
+#6 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('revisionp/updat...', Array)
+#7 /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php(17): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'CONTENT_LENGTH' => '15101',
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundarydSWC260kpA604Odh',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/soluci12/tesis.solucionescrv.com',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'es-ES,es;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_csrf-frontend=11073379569963b1af239bfae15984958b007155ea137c326c19dccc834d0864a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22zht8Mjy9crEHwOcnkx64gg3b6wcde1Ox%22%3B%7D; advanced-frontend=2a7col72tmko7nc5o2ak8c0hn1; _identity-frontend=102945978bbee707674a50b39b7033cfc34429b52e022087decc0e6845c63ad8a%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B29%2C%22i4dst9FWA_ryKsBWC17v_o6o4mq8izUT%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'tesis.solucionescrv.com',
+    'HTTP_ORIGIN' => 'http://tesis.solucionescrv.com',
+    'HTTP_REFERER' => 'http://tesis.solucionescrv.com/autonoma/frontend//web/index.php?r=revisionp%2Fupdate&id=4',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PATH_TRANSLATED' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'QUERY_STRING' => 'r=revisionp%2Fupdate&id=4',
+    'REDIRECT_STATUS' => '302',
+    'REMOTE_ADDR' => '138.0.90.120',
+    'REMOTE_PORT' => '51792',
+    'REQUEST_METHOD' => 'POST',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/autonoma/frontend//web/index.php?r=revisionp%2Fupdate&id=4',
+    'SCRIPT_FILENAME' => '/home/soluci12/tesis.solucionescrv.com/autonoma/frontend/web/index.php',
+    'SCRIPT_NAME' => '/autonoma/frontend//web/index.php',
+    'SCRIPT_URI' => 'http://tesis.solucionescrv.com/autonoma/frontend//web/index.php',
+    'SCRIPT_URL' => '/autonoma/frontend//web/index.php',
+    'SERVER_ADDR' => '144.217.69.137',
+    'SERVER_ADMIN' => 'webmaster@tesis.solucionescrv.com',
+    'SERVER_NAME' => 'tesis.solucionescrv.com',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'UNIQUE_ID' => 'Wguir7g5EZcz63PFcMDmVAAAAFE',
+    'PHP_SELF' => '/autonoma/frontend//web/index.php',
+    'REQUEST_TIME_FLOAT' => 1510711984.4174740314483642578125,
+    'REQUEST_TIME' => 1510711984,
+    'argv' => [
+        'r=revisionp%2Fupdate&id=4',
+    ],
+    'argc' => 1,
+]
+[15-Nov-2017 10:52:12 America/Bogota] PHP Warning:  POST Content-Length of 22711649 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[15-Nov-2017 10:52:34 America/Bogota] PHP Warning:  PDOStatement::execute(): MySQL server has gone away in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/db/Command.php on line 902
+[15-Nov-2017 10:52:34 America/Bogota] PHP Warning:  PDOStatement::execute(): Error reading result set's header in /home/soluci12/tesis.solucionescrv.com/autonoma/vendor/yiisoft/yii2/db/Command.php on line 902

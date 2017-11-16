@@ -1,0 +1,7 @@
+(bonitasoft-bizagi; son herramientas BPMS que manejan los modelados de BPM-revisar BPMN) 
+
+Referenciar REVISAR mendeley
+
+CLAVE EBSCO:
+USUARIO: autonomacauca
+CONTRASEÑA: academia

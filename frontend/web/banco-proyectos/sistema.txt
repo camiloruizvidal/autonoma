@@ -1,0 +1,12 @@
+
+mc
+-----------------------------
+hector ricardo
+hola como estamos por fin pude crear un archivo en php. el error era de permisos por eso utilice chmod 777 directorio  y listo funciona 
+-----------------------------
+hector ricardo
+hola como estamos por fin pude crear un archivo en php. el error era de permisos por eso utilice chmod 777 directorio  y listo funciona 
+-----------------------------
+hector ricardo
+hola como estamos por fin pude crear un archivo en php. el error era de permisos por eso utilice chmod 777 directorio  y listo funciona 
+-----------------------------
