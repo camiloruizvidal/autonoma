@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
@@ -48,42 +49,51 @@ use Yii;
  */
 abstract class Application extends Module
 {
+
     /**
      * @event Event an event raised before the application starts to handle a request.
      */
-    const EVENT_BEFORE_REQUEST = 'beforeRequest';
+    const EVENT_BEFORE_REQUEST   = 'beforeRequest';
+
     /**
      * @event Event an event raised after the application successfully handles a request (before the response is sent out).
      */
-    const EVENT_AFTER_REQUEST = 'afterRequest';
+    const EVENT_AFTER_REQUEST    = 'afterRequest';
+
     /**
      * Application state used by [[state]]: application just started.
      */
-    const STATE_BEGIN = 0;
+    const STATE_BEGIN            = 0;
+
     /**
      * Application state used by [[state]]: application is initializing.
      */
-    const STATE_INIT = 1;
+    const STATE_INIT             = 1;
+
     /**
      * Application state used by [[state]]: application is triggering [[EVENT_BEFORE_REQUEST]].
      */
-    const STATE_BEFORE_REQUEST = 2;
+    const STATE_BEFORE_REQUEST   = 2;
+
     /**
      * Application state used by [[state]]: application is handling the request.
      */
     const STATE_HANDLING_REQUEST = 3;
+
     /**
      * Application state used by [[state]]: application is triggering [[EVENT_AFTER_REQUEST]]..
      */
-    const STATE_AFTER_REQUEST = 4;
+    const STATE_AFTER_REQUEST    = 4;
+
     /**
      * Application state used by [[state]]: application is about to send response.
      */
     const STATE_SENDING_RESPONSE = 5;
+
     /**
      * Application state used by [[state]]: application has ended.
      */
-    const STATE_END = 6;
+    const STATE_END              = 6;
 
     /**
      * @var string the namespace that controller classes are located in.
@@ -93,48 +103,58 @@ abstract class Application extends Module
      * Please refer to the [guide about class autoloading](guide:concept-autoloading.md) for more details.
      */
     public $controllerNamespace = 'app\\controllers';
+
     /**
      * @var string the application name.
      */
-    public $name = 'My Application';
+    public $name                = 'My Application';
+
     /**
      * @var string the charset currently used for the application.
      */
-    public $charset = 'UTF-8';
+    public $charset             = 'UTF-8';
+
     /**
      * @var string the language that is meant to be used for end users. It is recommended that you
      * use [IETF language tags](http://en.wikipedia.org/wiki/IETF_language_tag). For example, `en` stands
      * for English, while `en-US` stands for English (United States).
      * @see sourceLanguage
      */
-    public $language = 'en-US';
+    public $language            = 'en-US';
+
     /**
      * @var string the language that the application is written in. This mainly refers to
      * the language that the messages and view files are written in.
      * @see language
      */
-    public $sourceLanguage = 'en-US';
+    public $sourceLanguage      = 'en-US';
+
     /**
      * @var Controller the currently active controller instance
      */
     public $controller;
+
     /**
      * @var string|bool the layout that should be applied for views in this application. Defaults to 'main'.
      * If this is false, layout will be disabled.
      */
-    public $layout = 'main';
+    public $layout              = 'main';
+
     /**
      * @var string the requested route
      */
     public $requestedRoute;
+
     /**
      * @var Action the requested Action. If null, it means the request cannot be resolved into an action.
      */
     public $requestedAction;
+
     /**
      * @var array the parameters supplied to the requested action.
      */
     public $requestedParams;
+
     /**
      * @var array list of installed Yii extensions. Each array element represents a single extension
      * with the following structure:
@@ -159,6 +179,7 @@ abstract class Application extends Module
      * `@vendor/yiisoft/extensions.php`.
      */
     public $extensions;
+
     /**
      * @var array list of components that should be run during the application [[bootstrap()|bootstrapping process]].
      *
@@ -173,17 +194,18 @@ abstract class Application extends Module
      * implements [[BootstrapInterface]], its [[BootstrapInterface::bootstrap()|bootstrap()]] method
      * will be also be called.
      */
-    public $bootstrap = [];
+    public $bootstrap           = [];
+
     /**
      * @var int the current application state during a request handling life cycle.
      * This property is managed by the application. Do not modify this property.
      */
     public $state;
+
     /**
      * @var array list of loaded modules indexed by their class names.
      */
-    public $loadedModules = [];
-
+    public $loadedModules       = [];
 
     /**
      * Constructor.
@@ -215,49 +237,67 @@ abstract class Application extends Module
      */
     public function preInit(&$config)
     {
-        if (!isset($config['id'])) {
+        if (!isset($config['id']))
+        {
             throw new InvalidConfigException('The "id" configuration for the Application is required.');
         }
-        if (isset($config['basePath'])) {
+        if (isset($config['basePath']))
+        {
             $this->setBasePath($config['basePath']);
             unset($config['basePath']);
-        } else {
+        }
+        else
+        {
             throw new InvalidConfigException('The "basePath" configuration for the Application is required.');
         }
 
-        if (isset($config['vendorPath'])) {
+        if (isset($config['vendorPath']))
+        {
             $this->setVendorPath($config['vendorPath']);
             unset($config['vendorPath']);
-        } else {
+        }
+        else
+        {
             // set "@vendor"
             $this->getVendorPath();
         }
-        if (isset($config['runtimePath'])) {
+        if (isset($config['runtimePath']))
+        {
             $this->setRuntimePath($config['runtimePath']);
             unset($config['runtimePath']);
-        } else {
+        }
+        else
+        {
             // set "@runtime"
             $this->getRuntimePath();
         }
 
-        if (isset($config['timeZone'])) {
+        if (isset($config['timeZone']))
+        {
             $this->setTimeZone($config['timeZone']);
             unset($config['timeZone']);
-        } elseif (!ini_get('date.timezone')) {
+        }
+        elseif (!ini_get('date.timezone'))
+        {
             $this->setTimeZone('UTC');
         }
 
-        if (isset($config['container'])) {
+        if (isset($config['container']))
+        {
             $this->setContainer($config['container']);
 
             unset($config['container']);
         }
 
         // merge core components with custom components
-        foreach ($this->coreComponents() as $id => $component) {
-            if (!isset($config['components'][$id])) {
+        foreach ($this->coreComponents() as $id => $component)
+        {
+            if (!isset($config['components'][$id]))
+            {
                 $config['components'][$id] = $component;
-            } elseif (is_array($config['components'][$id]) && !isset($config['components'][$id]['class'])) {
+            }
+            elseif (is_array($config['components'][$id]) && !isset($config['components'][$id]['class']))
+            {
                 $config['components'][$id]['class'] = $component['class'];
             }
         }
@@ -279,46 +319,65 @@ abstract class Application extends Module
      */
     protected function bootstrap()
     {
-        if ($this->extensions === null) {
-            $file = Yii::getAlias('@vendor/yiisoft/extensions.php');
+        if ($this->extensions === null)
+        {
+            $file             = Yii::getAlias('@vendor/yiisoft/extensions.php');
             $this->extensions = is_file($file) ? include($file) : [];
         }
-        foreach ($this->extensions as $extension) {
-            if (!empty($extension['alias'])) {
-                foreach ($extension['alias'] as $name => $path) {
+        foreach ($this->extensions as $extension)
+        {
+            if (!empty($extension['alias']))
+            {
+                foreach ($extension['alias'] as $name => $path)
+                {
                     Yii::setAlias($name, $path);
                 }
             }
-            if (isset($extension['bootstrap'])) {
+            if (isset($extension['bootstrap']))
+            {
                 $component = Yii::createObject($extension['bootstrap']);
-                if ($component instanceof BootstrapInterface) {
+                if ($component instanceof BootstrapInterface)
+                {
                     Yii::trace('Bootstrap with ' . get_class($component) . '::bootstrap()', __METHOD__);
                     $component->bootstrap($this);
-                } else {
+                }
+                else
+                {
                     Yii::trace('Bootstrap with ' . get_class($component), __METHOD__);
                 }
             }
         }
 
-        foreach ($this->bootstrap as $class) {
+        foreach ($this->bootstrap as $class)
+        {
             $component = null;
-            if (is_string($class)) {
-                if ($this->has($class)) {
+            if (is_string($class))
+            {
+                if ($this->has($class))
+                {
                     $component = $this->get($class);
-                } elseif ($this->hasModule($class)) {
+                }
+                elseif ($this->hasModule($class))
+                {
                     $component = $this->getModule($class);
-                } elseif (strpos($class, '\\') === false) {
+                }
+                elseif (strpos($class, '\\') === false)
+                {
                     throw new InvalidConfigException("Unknown bootstrapping component ID: $class");
                 }
             }
-            if (!isset($component)) {
+            if (!isset($component))
+            {
                 $component = Yii::createObject($class);
             }
 
-            if ($component instanceof BootstrapInterface) {
+            if ($component instanceof BootstrapInterface)
+            {
                 Yii::trace('Bootstrap with ' . get_class($component) . '::bootstrap()', __METHOD__);
                 $component->bootstrap($this);
-            } else {
+            }
+            else
+            {
                 Yii::trace('Bootstrap with ' . get_class($component), __METHOD__);
             }
         }
@@ -330,8 +389,10 @@ abstract class Application extends Module
      */
     protected function registerErrorHandler(&$config)
     {
-        if (YII_ENABLE_ERROR_HANDLER) {
-            if (!isset($config['components']['errorHandler']['class'])) {
+        if (YII_ENABLE_ERROR_HANDLER)
+        {
+            if (!isset($config['components']['errorHandler']['class']))
+            {
                 echo "Error: no errorHandler component is configured.\n";
                 exit(1);
             }
@@ -371,29 +432,24 @@ abstract class Application extends Module
      */
     public function run()
     {
-        try {
-
+        try
+        {
             $this->state = self::STATE_BEFORE_REQUEST;
             $this->trigger(self::EVENT_BEFORE_REQUEST);
-
             $this->state = self::STATE_HANDLING_REQUEST;
-            $response = $this->handleRequest($this->getRequest());
-
+            $response    = $this->handleRequest($this->getRequest());
             $this->state = self::STATE_AFTER_REQUEST;
             $this->trigger(self::EVENT_AFTER_REQUEST);
-
             $this->state = self::STATE_SENDING_RESPONSE;
             $response->send();
-
             $this->state = self::STATE_END;
-
             return $response->exitStatus;
-
-        } catch (ExitException $e) {
+        }
+        catch (ExitException $e)
+        {
 
             $this->end($e->statusCode, isset($response) ? $response : null);
             return $e->statusCode;
-
         }
     }
 
@@ -417,7 +473,8 @@ abstract class Application extends Module
      */
     public function getRuntimePath()
     {
-        if ($this->_runtimePath === null) {
+        if ($this->_runtimePath === null)
+        {
             $this->setRuntimePath($this->getBasePath() . DIRECTORY_SEPARATOR . 'runtime');
         }
 
@@ -443,7 +500,8 @@ abstract class Application extends Module
      */
     public function getVendorPath()
     {
-        if ($this->_vendorPath === null) {
+        if ($this->_vendorPath === null)
+        {
             $this->setVendorPath($this->getBasePath() . DIRECTORY_SEPARATOR . 'vendor');
         }
 
@@ -621,14 +679,14 @@ abstract class Application extends Module
     public function coreComponents()
     {
         return [
-            'log' => ['class' => 'yii\log\Dispatcher'],
-            'view' => ['class' => 'yii\web\View'],
-            'formatter' => ['class' => 'yii\i18n\Formatter'],
-            'i18n' => ['class' => 'yii\i18n\I18N'],
-            'mailer' => ['class' => 'yii\swiftmailer\Mailer'],
-            'urlManager' => ['class' => 'yii\web\UrlManager'],
+            'log'          => ['class' => 'yii\log\Dispatcher'],
+            'view'         => ['class' => 'yii\web\View'],
+            'formatter'    => ['class' => 'yii\i18n\Formatter'],
+            'i18n'         => ['class' => 'yii\i18n\I18N'],
+            'mailer'       => ['class' => 'yii\swiftmailer\Mailer'],
+            'urlManager'   => ['class' => 'yii\web\UrlManager'],
             'assetManager' => ['class' => 'yii\web\AssetManager'],
-            'security' => ['class' => 'yii\base\Security'],
+            'security'     => ['class' => 'yii\base\Security'],
         ];
     }
 
@@ -642,20 +700,25 @@ abstract class Application extends Module
      */
     public function end($status = 0, $response = null)
     {
-        if ($this->state === self::STATE_BEFORE_REQUEST || $this->state === self::STATE_HANDLING_REQUEST) {
+        if ($this->state === self::STATE_BEFORE_REQUEST || $this->state === self::STATE_HANDLING_REQUEST)
+        {
             $this->state = self::STATE_AFTER_REQUEST;
             $this->trigger(self::EVENT_AFTER_REQUEST);
         }
 
-        if ($this->state !== self::STATE_SENDING_RESPONSE && $this->state !== self::STATE_END) {
+        if ($this->state !== self::STATE_SENDING_RESPONSE && $this->state !== self::STATE_END)
+        {
             $this->state = self::STATE_END;
-            $response = $response ? : $this->getResponse();
+            $response    = $response ? : $this->getResponse();
             $response->send();
         }
 
-        if (YII_ENV_TEST) {
+        if (YII_ENV_TEST)
+        {
             throw new ExitException($status);
-        } else {
+        }
+        else
+        {
             exit($status);
         }
     }
@@ -670,4 +733,5 @@ abstract class Application extends Module
     {
         Yii::configure(Yii::$container, $config);
     }
+
 }

@@ -66,8 +66,13 @@ function notifi()
         $('#w3 li a').html('<i id="not_ante"></i>Ver Anteproyectos');
     }
 }
+function inputsearch()
+{
+    console.log($('input[name="DocumentoSearch[nombre]"]'));
+}
 $(function ()
 {
+    inputsearch();
     notifi();
     alertas();
     setInterval(cargandoalertas, 3000);
