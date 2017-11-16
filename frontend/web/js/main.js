@@ -68,7 +68,9 @@ function notifi()
 }
 function inputsearch()
 {
-    console.log($('input[name="DocumentoSearch[nombre]"]'));
+    $('input[name="DocumentoSearch[nombre]"]').parent().html('<div class="input-group"><span class="input-group-btn"><button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button></span>' + $('input[name="DocumentoSearch[nombre]"]').parent().html() + '</div>');
+
+
 }
 $(function ()
 {
