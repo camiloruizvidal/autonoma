@@ -28,7 +28,7 @@ class Documento extends \yii\db\ActiveRecord
         return [
             'iddocumento'       => 'Iddocumento',
             'nombre'            => 'Nombre',
-            'id_documento_tipo' => 'TipoDocumento',
+            'id_documento_tipo' => 'Tipo de documento',
             'archivo'           => 'Archivo',
             'file'              => 'Archivo',
         ];

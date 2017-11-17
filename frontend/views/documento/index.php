@@ -35,11 +35,24 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-xs-12">
                         <label>Tipo de documentos</label>
                         <div class="input-group">
-                            <select class="form form-control">
-                                <option value="">Todos</option>
-                                <option value="">Resolucion</option>
-                                <option value="">Oficio</option>
-                                <option value="">Formatos</option>
+                            <select class="form form-control" onchange="search();" name="id_tipo_documento" id="id_tipo_documento">
+                                <option value="-1">Todos</option>
+                                <?php
+                                $ds                            = DIRECTORY_SEPARATOR;
+                                include_once dirname(__FILE__) . $ds . '..' . $ds . '..' . $ds . 'controllers' . $ds . 'ajax' . $ds . 'conexion.php';
+                                $sql                           = 'SELECT 
+                                        `documento_tipo`.`id_documento_tipo`,
+                                        `documento_tipo`.`descripcion`
+                                      FROM
+                                        `documento_tipo`
+                                        ORDER BY
+                                        `documento_tipo`.`descripcion`';
+                                $data                          = conexion::records($sql);
+                                foreach ($data as $temp)
+                                {
+                                    echo '<option value="' . $temp['id_documento_tipo'] . '">' . $temp['descripcion'] . '</option>';
+                                }
+                                ?>
                             </select>
                             <span class="input-group-btn">
                                 <button class="btn btn-danger" type="button">x</button>

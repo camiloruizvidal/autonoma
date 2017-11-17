@@ -14,6 +14,10 @@ if ($_POST['nombre'] != '')
         $where[] = ' UPPER(trim(`documento`.`nombre`)) LIKE "%' . strtoupper(trim($temp)) . '%" ';
     }
 }
+if ($_POST['id_tipo_documento'] != '-1')
+{
+    $where[] = ' `documento`.`id_documento_tipo` = ' . $_POST['id_tipo_documento'] . ' ';
+}
 if ($where != '')
 {
     $where = ' WHERE ' . implode(' AND ', $where);
