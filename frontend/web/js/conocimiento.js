@@ -6,7 +6,7 @@ function tabla() {
     $.ajax({
         url: '../controllers/ajax/conocimiento.php',
         type: 'post',
-        //data: $('form').serialize(),
+        data: {id_proyecto_tipo: $('select').val()},
         success: function (data) {
             $('#data').html(data);
             rendertabla();
@@ -16,4 +16,8 @@ function tabla() {
 $(function ()
 {
     tabla();
+	$('select').change(function()
+	{
+		tabla();
+	})
 });

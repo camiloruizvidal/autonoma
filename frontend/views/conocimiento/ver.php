@@ -23,7 +23,7 @@ ORDER BY
 `programas`.`descripcion`';
 $data                          = conexion::records($sql);
 $option                        = '';
-    $option= '<option value="-1">Todos</option>';
+$option                        = '<option value="-1">Todos</option>';
 foreach ($data as $temp)
 {
     $option.= '<option value="' . $temp['id_programas'] . '">' . $temp['descripcion'] . '</option>';
