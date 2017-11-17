@@ -21,9 +21,8 @@ AppAsset::register($this);
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/jquery/jquery.js" type="text/javascript"></script>
         <script src="js/jquery.dataTables.min.js" type="text/javascript" charset="utf8" ></script>
-
         <script src="js/toastr.min.js"></script>
         <link href="css/toastr.min.css" rel="stylesheet">
         <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>

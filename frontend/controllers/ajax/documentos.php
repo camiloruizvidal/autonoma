@@ -1,28 +1,39 @@
 <?php
 
-include_once './visual.php';
-include_once './conexion.php';
-$where = "";
-if ($_POST['nombre'] != '')
+function iniciar()
 {
-
-    $_POST['nombre'] = trim($_POST['nombre']);
-    $var             = explode(' ', $_POST['nombre']);
-    foreach ($var as $temp)
+    include_once './visual.php';
+    include_once './conexion.php';
+    $where = "";
+    if (trim($_POST['nombre']) != '')
     {
-        $temp    = htmlspecialchars($temp);
-        $where[] = ' UPPER(trim(`documento`.`nombre`)) LIKE "%' . strtoupper(trim($temp)) . '%" ';
+
+        $_POST['nombre'] = trim($_POST['nombre']);
+        $var             = explode(' ', $_POST['nombre']);
+        foreach ($var as $temp)
+        {
+            $temp    = htmlspecialchars($temp);
+            $where[] = ' UPPER(trim(`documento`.`nombre`)) LIKE "%' . strtoupper(trim($temp)) . '%" ';
+        }
     }
-}
-if ($_POST['id_tipo_documento'] != '-1')
-{
-    $where[] = ' `documento`.`id_documento_tipo` = ' . $_POST['id_tipo_documento'] . ' ';
-}
-if ($where != '')
-{
-    $where = ' WHERE ' . implode(' AND ', $where);
-}
-$sql  = 'SELECT 
+    if ($_POST['id_tipo_documento'] != '-1')
+    {
+        $where[] = ' `documento`.`id_documento_tipo` = ' . $_POST['id_tipo_documento'] . ' ';
+    }
+    if (trim($_POST['inicio']) != '')
+    {
+        $where[] = ' date(`documento`.`fecha`) >= date("' . trim($_POST['inicio']) . '") ';
+    }
+    if (trim($_POST['fin']) != '')
+    {
+        $where[] = ' date(`documento`.`fecha`) <= date("' . trim($_POST['fin']) . '") ';
+    }
+
+    if ($where != '')
+    {
+        $where = ' WHERE ' . implode(' AND ', $where);
+    }
+    $sql  = 'SELECT 
   `documento`.`nombre`,
   COALESCE(`documento_tipo`.`descripcion`,"NN") as descripcion,
   `documento`.`iddocumento`
@@ -33,10 +44,10 @@ FROM
 ORDER BY
   `documento`.`nombre`
   ';
-$Data = conexion::records($sql);
-foreach ($Data as $key => $temp)
-{
-    $temp['iddocumento'] = '
+    $Data = conexion::records($sql);
+    foreach ($Data as $key => $temp)
+    {
+        $temp['iddocumento'] = '
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Opciones
@@ -48,6 +59,12 @@ foreach ($Data as $key => $temp)
                   <li><a href="/autonoma/frontend/web/index.php?r=documento%2Fdelete&amp;id=' . $temp['iddocumento'] . '" title="Delete" aria-label="Delete" data-pjax="0" data-confirm="Are you sure you want to delete this item?" data-method="post"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></li>
                 </ul>
               </div>';
-    $Data[$key]          = $temp;
+        $Data[$key]          = $temp;
+    }
+    echo visual::Tabla($Data, array('#', 'Proyectos', 'Tipo', 'Opciones'), 'table_documentos');
 }
-echo visual::Tabla($Data, array('#', 'Proyectos', 'Tipo', 'Opciones'), 'table_documentos');
+
+if ($_POST)
+{
+    iniciar();
+}

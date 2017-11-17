@@ -28,8 +28,9 @@ foreach ($data as $temp)
     $option.= '<option value="' . $temp['id_documento_tipo'] . '">' . $temp['descripcion'] . '</option>';
 }
 ?>
-
 <script src="js/documento.js<?php echo '?v=' . date('YmdHis'); ?>"></script>
+<script src="js/jquery/jquery-ui.min.js"></script>
+<link href="css/jquery/jquery-ui.css" rel="stylesheet"/>
 <div class="col-md-4">
     <div class="panel panel-primary">
         <div class="panel-heading">

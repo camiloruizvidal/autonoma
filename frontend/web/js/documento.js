@@ -1,15 +1,11 @@
 function languaje()
 {
     var data = {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
         language: {
             "sProcessing": "Procesando...",
             "sLengthMenu": "Mostrar _MENU_ registros",
             "sZeroRecords": "No se encontraron resultados",
-            "sEmptyTable": "NingÃºn dato disponible en esta tabla",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
             "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
             "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
             "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
@@ -35,7 +31,7 @@ function languaje()
 function rendertabla()
 {
     try {
-        //$('#table_documentos').DataTable();
+        $('#table_documentos').DataTable(languaje());
     }
     catch (E)
     {
@@ -71,14 +67,47 @@ function limpiar(input)
 
 function search()
 {
-    $('#nombre,#inicio,#fin').keyup(function ()
+    $('#inicio,#fin').change(function ()
+    {
+        tabla();
+    });
+    $('#nombre').keyup(function ()
     {
         tabla();
     });
 }
 function fechas()
 {
-$('#inicio,#fin').date
+    var dateFormat = "yy-mm-dd",
+            from = $("#inicio")
+            .datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat
+            })
+            .on("change", function () {
+                to.datepicker("option", "minDate", getDate(this));
+            }),
+            to = $("#fin").datepicker(
+            {
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat
+            })
+            .on("change", function () {
+                from.datepicker("option", "maxDate", getDate(this));
+            });
+
+    function getDate(element) {
+        var date;
+        try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        }
+        catch (error) {
+            date = null;
+        }
+        return date;
+    }
 }
 $(function ()
 {
