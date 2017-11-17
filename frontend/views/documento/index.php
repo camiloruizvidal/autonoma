@@ -1,4 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <?php
 
 use yii\helpers\Html;
@@ -14,9 +13,9 @@ use yii\helpers\Url;
 $this->title                   = 'Documentos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-<script src="js/documento.js"></script>
+<script src="js/documento.js<?php echo '?v=' . date('YmdHis'); ?>"></script>
 <div class="col-md-4">
     <div class="panel panel-primary">
         <div class="panel-heading">
