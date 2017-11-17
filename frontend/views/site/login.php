@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 $this->title                   = 'Inicio de Sesión';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<link href="./css/login.css" rel="stylesheet"/>
+<link href="./css/login.css?v=<?php echo date('Ymdihs');?>" rel="stylesheet"/>
 <div class = "container">
     <div class="wrapper">
         <form id="login_form" method="post" name="Login_Form" class="form-signin">       

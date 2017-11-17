@@ -1,5 +1,14 @@
-body{
-    background-color:#C3c3c3 !important;
+
+body {
+    background-image: url("../image/sede.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+html {
+    height: 100%
+}
+nav, .breadcrumb{
+    display:none;
 }
 .container{
     padding-bottom: 0px;
