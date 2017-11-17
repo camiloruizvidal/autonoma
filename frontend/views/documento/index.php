@@ -12,6 +12,21 @@ use yii\helpers\Url;
 
 $this->title                   = 'Documentos';
 $this->params['breadcrumbs'][] = $this->title;
+$ds                            = DIRECTORY_SEPARATOR;
+include_once dirname(__FILE__) . $ds . '..' . $ds . '..' . $ds . 'controllers' . $ds . 'ajax' . $ds . 'conexion.php';
+$sql                           = 'SELECT 
+                                        `documento_tipo`.`id_documento_tipo`,
+                                        `documento_tipo`.`descripcion`
+                                      FROM
+                                        `documento_tipo`
+                                        ORDER BY
+                                        `documento_tipo`.`descripcion`';
+$data                          = conexion::records($sql);
+$option                        = '';
+foreach ($data as $temp)
+{
+    $option.= '<option value="' . $temp['id_documento_tipo'] . '">' . $temp['descripcion'] . '</option>';
+}
 ?>
 
 <script src="js/documento.js<?php echo '?v=' . date('YmdHis'); ?>"></script>
@@ -28,34 +43,21 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="input-group">
                             <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
                             <span class="input-group-btn">
-                                <button onkeyup="search();" class="btn btn-danger" type="button">x</button>
+                                <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
                             </span>
                         </div><!-- /input-group -->
                     </div>
                     <div class="col-xs-12">
                         <label>Tipo de documentos</label>
                         <div class="input-group">
-                            <select class="form form-control" onchange="search();" name="id_tipo_documento" id="id_tipo_documento">
+                            <select class="form form-control" onchange="tabla();" name="id_tipo_documento" id="id_tipo_documento">
                                 <option value="-1">Todos</option>
                                 <?php
-                                $ds                            = DIRECTORY_SEPARATOR;
-                                include_once dirname(__FILE__) . $ds . '..' . $ds . '..' . $ds . 'controllers' . $ds . 'ajax' . $ds . 'conexion.php';
-                                $sql                           = 'SELECT 
-                                        `documento_tipo`.`id_documento_tipo`,
-                                        `documento_tipo`.`descripcion`
-                                      FROM
-                                        `documento_tipo`
-                                        ORDER BY
-                                        `documento_tipo`.`descripcion`';
-                                $data                          = conexion::records($sql);
-                                foreach ($data as $temp)
-                                {
-                                    echo '<option value="' . $temp['id_documento_tipo'] . '">' . $temp['descripcion'] . '</option>';
-                                }
+                                echo $option;
                                 ?>
                             </select>
                             <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button">x</button>
+                                <button onclick="limpiar('#id_tipo_documento');" class="btn btn-danger" type="button">x</button>
                             </span>
                         </div><!-- /input-group -->
                     </div>

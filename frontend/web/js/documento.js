@@ -35,7 +35,7 @@ function languaje()
 function rendertabla()
 {
     try {
-        $('#table_documentos').DataTable();
+        //$('#table_documentos').DataTable();
     }
     catch (E)
     {
@@ -53,9 +53,24 @@ function tabla() {
         }
     });
 }
+function limpiar(input)
+{
+    console.log($(input)[0].tagName);
+    switch ($(input)[0].tagName)
+    {
+        case 'INPUT':
+            $(input).val('');
+            break;
+        case 'SELECT':
+            $(input).val('-1');
+            break;
+    }
+    tabla();
+
+}
+
 function search()
 {
-    $('#')
     $('#nombre').keyup(function ()
     {
         tabla();
