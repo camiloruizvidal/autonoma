@@ -14,6 +14,8 @@ use frontend\models\Revision;
 $this->title                   = 'Anteproyectos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<link href="css/jquery/jquery-ui.min.css" rel="stylesheet"/>
+<script src="js/jquery/jquery-ui.min.js"></script>
 <script src="js/anteproyecto.js"></script>
 <style>
     table.dataTable tbody th, table.dataTable tbody td{
@@ -27,66 +29,70 @@ $this->params['breadcrumbs'][] = $this->title;
                 Buscar <?= Html::encode($this->title) ?>
             </div>
             <div class="panel-body">
-                <div class="col-xs-12">
-                    <label>Estudiante</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
-                        </span>
+                <form id="search">
+                    <div class="col-xs-12">
+                        <label>Estudiante</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12">
-                    <label>Proyecto</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
-                        </span>
+                    <div class="col-xs-12">
+                        <label>Proyecto</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="proyecto" id="proyecto" placeholder="nombre">
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#proyecto');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-6">
-                    <label>Tipo</label>
-                    <div class="input-group">
-                        <select class="form-control" name="nombre" id="nombre" placeholder="nombre">
-                            <option>trabajo de Investigacion</option>
-                            <option>pasantia</option>
-                        </select>
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
-                        </span>
+                    <div class="col-xs-6">
+                        <label>Tipo</label>
+                        <div class="input-group">
+                            <select class="form-control" name="idmodalidad" id="idmodalidad">
+                                <option value="-1">TODOS</option>
+                                <option value="2">trabajo de Investigacion</option>
+                                <option value="1">pasantia</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#idmodalidad');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <label>Publicados</label>
-                    <div class="input-group">
-                        <select class="form-control" name="nombre" id="nombre" placeholder="nombre">
-                            <option value="1">SI</option>
-                            <option value="0">NO</option>
-                        </select>
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
-                        </span>
+                    <div class="col-md-6">
+                        <label>Publicados</label>
+                        <div class="input-group">
+                            <select class="form-control" name="activo" id="activo">
+                                <option value="-1">TODOS</option>
+                                <option value="1">SI</option>
+                                <option value="0">NO</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#activo');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <label>Fecha inicio</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="YYYY-mm-dd">
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
-                        </span>
+                    <div class="col-md-6">
+                        <label>Fecha inicio</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="inicio" id="inicio" placeholder="YYYY-mm-dd">
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#inicio');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <label>Fecha fin</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="YYYY-mm-dd">
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
-                        </span>
+                    <div class="col-md-6">
+                        <label>Fecha fin</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="fin" id="fin" placeholder="YYYY-mm-dd">
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#fin');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

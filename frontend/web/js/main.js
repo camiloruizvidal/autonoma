@@ -1,5 +1,20 @@
 var ante = 0;
 var pro = 0;
+function limpiar(input)
+{
+    console.log($(input)[0].tagName);
+    switch ($(input)[0].tagName)
+    {
+        case 'INPUT':
+            $(input).val('');
+            break;
+        case 'SELECT':
+            $(input).val('-1');
+            break;
+    }
+    tabla();
+
+}
 function languaje()
 {
     var data = {
