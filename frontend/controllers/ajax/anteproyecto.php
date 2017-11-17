@@ -38,9 +38,9 @@ function iniciar()
   DATE_FORMAT(`anteproyecto`.`date_create`,'%d-%m-%Y') as fecha_creado,
   CONCAT_WS(' ', `user`.`nombre`, `user`.`apellido`) AS `estudiante`,
   `anteproyecto`.`nombre`,
+  `anteproyecto`.`estado`,
   `modalidad`.`nombre` AS `modalidad`,
-  `anteproyecto`.`idanteproyecto`,
-  `anteproyecto`.`estado`  
+  `anteproyecto`.`idanteproyecto`
 FROM
   `user`
   INNER JOIN `anteproyecto` ON (`user`.`id` = `anteproyecto`.`id`)
@@ -61,8 +61,13 @@ ORDER BY
                   ';
         if ($temp['estado'] == '0')
         {
+            $temp['estado'] = 'NO';
             $button .= '<li><a href="index.php?r=anteproyecto%2Fpublic&id=' . $temp['idanteproyecto'] . '" title="Publicar" aria-label="Publicar" data-pjax="0" data-confirm="¿Esta seguro que desea publicar este proyecto?" data-method="post"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>
                   ';
+        }
+        else
+        {
+            $temp['estado'] = 'SI';
         }
         $button .= '<li><a href="index.php?r=anteproyecto%2Fview&id=' . $temp['idanteproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-zoom-in"></span> Detalle</a></li>
                 </ul>
@@ -70,7 +75,7 @@ ORDER BY
         $temp['idanteproyecto'] = $button;
         $data[$key]             = $temp;
     }
-    $encabezados = array('#', 'Fecha', 'Estudiante', 'Nombre', 'Tipo', 'Opciones');
+    $encabezados = array('#', 'Fecha', 'Estudiante', 'Nombre', 'Publicado', 'Tipo', 'Opciones');
     $html        = '<table id="table_anteproyecto" class="table table-striped table-bordered">' . "\n";
     $html .= '  <thead>' . "\n";
     $html .= '  <tr>' . "\n";
@@ -84,7 +89,7 @@ ORDER BY
     for ($i = 0; $i < count($data); $i++)
     {
         $color = ' class="danger" ';
-        if ($data[$i]['estado'] == '1')
+        if ($data[$i]['estado'] == 'SI')
         {
             $color = ' class="success" ';
         }
@@ -93,10 +98,7 @@ ORDER BY
         $html.='            <td>' . ($i + 1) . '</td>' . "\n";
         foreach ($data[$i] as $key => $temp)
         {
-            if ($key != 'estado')
-            {
-                $html.='            <td>' . $temp . '</td>' . "\n";
-            }
+            $html.='            <td>' . $temp . '</td>' . "\n";
         }
         $html.='        </tr>' . "\n";
     }
