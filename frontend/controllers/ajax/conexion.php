@@ -21,17 +21,20 @@ class conexion
         $conn = self::conn();
         $Res  = array();
         $data = $conn->query($sql);
-        foreach ($data as $row)
+        if ($data)
         {
-            $temp2 = array();
-            foreach ($row as $key => $temp)
+            foreach ($data as $row)
             {
-                if (!is_numeric($key))
+                $temp2 = array();
+                foreach ($row as $key => $temp)
                 {
-                    $temp2[$key] = $temp;
+                    if (!is_numeric($key))
+                    {
+                        $temp2[$key] = $temp;
+                    }
                 }
+                $Res[] = $temp2;
             }
-            $Res[] = $temp2;
         }
 
         return $Res;

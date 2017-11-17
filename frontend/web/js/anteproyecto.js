@@ -1,7 +1,19 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
+function rendertabla()
+{
+    $('#table_anteproyecto').DataTable(languaje());
+}
+function tabla() {
+    $.ajax({
+        url: '../controllers/ajax/anteproyecto.php',
+        type: 'post',
+        //data: $('form').serialize(),
+        success: function (data) {
+            $('#data').html(data);
+            rendertabla();
+        }
+    });
+}
+$(function ()
+{
+    tabla();
+});
