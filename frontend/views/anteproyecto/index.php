@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="panel-body">
                 <div class="col-xs-12">
+                    <label>Estudiante</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
                         <span class="input-group-btn">
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <label></label>
+                    <label>Proyecto</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
                         <span class="input-group-btn">
@@ -44,37 +45,43 @@ $this->params['breadcrumbs'][] = $this->title;
                         </span>
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <label></label>
+                <div class="col-xs-6">
+                    <label>Tipo</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <label></label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
+                        <select class="form-control" name="nombre" id="nombre" placeholder="nombre">
+                            <option>trabajo de Investigacion</option>
+                            <option>pasantia</option>
+                        </select>
                         <span class="input-group-btn">
                             <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
                         </span>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label></label>
+                    <label>Publicados</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
+                        <select class="form-control" name="nombre" id="nombre" placeholder="nombre">
+                            <option value="1">SI</option>
+                            <option value="0">NO</option>
+                        </select>
                         <span class="input-group-btn">
                             <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
                         </span>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label></label>
+                    <label>Fecha inicio</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="YYYY-mm-dd">
+                        <span class="input-group-btn">
+                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>Fecha fin</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="YYYY-mm-dd">
                         <span class="input-group-btn">
                             <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
                         </span>
