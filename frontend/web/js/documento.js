@@ -1,6 +1,10 @@
 function languaje()
 {
     var data = {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         language: {
             "sProcessing": "Procesando...",
             "sLengthMenu": "Mostrar _MENU_ registros",
@@ -30,21 +34,37 @@ function languaje()
 }
 function rendertabla()
 {
-    $('#table_documentos').DataTable();
+    try {
+        $('#table_documentos').DataTable();
+    }
+    catch (E)
+    {
+        console.log(E);
+    }
 }
 function tabla() {
     $.ajax({
         url: '../controllers/ajax/documentos.php',
-        async: false,
         type: 'post',
-        data: null,
+        data: $('form').serialize(),
         success: function (data) {
             $('#data').html(data);
             rendertabla();
         }
     });
 }
+function search()
+{
+    $('#')
+    $('#nombre').keyup(function ()
+    {
+        tabla();
+    });
+
+}
+
 $(function ()
 {
+    search();
     tabla();
 });

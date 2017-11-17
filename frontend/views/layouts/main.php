@@ -18,125 +18,128 @@ AppAsset::register($this);
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-<?= Html::csrfMetaTags() ?>
+        <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-        <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/jquery.dataTables.min.js" type="text/javascript" charset="utf8" ></script>
+
+        <script src="js/toastr.min.js"></script>
+        <link href="css/toastr.min.css" rel="stylesheet">
+        <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-<?php $this->beginBody() ?>
+        <?php $this->beginBody() ?>
 
         <div class="wrap">
-<?php
-NavBar::begin([
-    'brandLabel' => Html::img('imagen/plataforma.png', ['alt' => 'some', 'width' => '90', 'height' => '90']),
-    'brandUrl'   => Yii::$app->homeUrl,
-    'options'    => [
-        'class' => 'nav navbar-inverse navbar-fixed-top',
-        'style' => 'background-color:#0061a2',
-    ],
-]);
-$menuItems = [
+            <?php
+            NavBar::begin([
+                'brandLabel' => Html::img('imagen/plataforma.png', ['alt' => 'some', 'width' => '90', 'height' => '90']),
+                'brandUrl'   => Yii::$app->homeUrl,
+                'options'    => [
+                    'class' => 'nav navbar-inverse navbar-fixed-top',
+                    'style' => 'background-color:#0061a2',
+                ],
+            ]);
+            $menuItems = [
 
-    ['label'   => 'Jurado', 'options' => ['class' => 'estado_proyecto treeview-menu'], 'visible' => Yii::$app->user->can('Estudiante'), 'items'   => [
-            ['label' => 'Ver Jurados', 'url' => ['/jurado-has-proyecto/verjurado'], 'visible' => Yii::$app->user->can('Estudiante')],
-        ],
-    ],
-    ['label'   => 'Anteproyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Secretario'), 'items'   => [
-            ['label' => 'Ver Anteproyectos', 'url' => ['/anteproyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
-        ],
-    ],
-    ['label'   => 'Anteproyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Comite'), 'items'   => [
-            ['label' => 'Anteproyectos', 'url' => ['/anteproyecto/index'], 'visible' => Yii::$app->user->can('Comite')],
-            ['label' => 'Asignar Concepto', 'url' => ['/revision/index'], 'visible' => Yii::$app->user->can('Comite')],
-        ],
-    ],
-    ['label'   => 'Anteproyecto', 'options' => ['class' => 'estado_anteproyecto treeview-menu'], 'visible' => Yii::$app->user->can('Estudiante'), 'items'   => [
-            ['label' => 'Crear Anteproyecto', 'url' => ['/anteproyecto/index'], 'visible' => Yii::$app->user->can('Estudiante')],
-            ['label' => 'Seguimiento', 'url' => ['/revision/index'], 'visible' => Yii::$app->user->can('Estudiante')],
-        ],
-    ],
-    ['label'   => 'Proyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Jurado'), 'items'   => [
-            ['label' => 'Ver Proyecto', 'url' => ['/proyecto/index'], 'visible' => Yii::$app->user->can('Jurado')],
-            ['label' => 'Asignar Concepto', 'url' => ['/revisionp/index'], 'visible' => Yii::$app->user->can('Jurado')],
-        ],
-    ],
-    ['label'   => 'Proyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Secretario'), 'items'   => [
+                ['label'   => 'Jurado', 'options' => ['class' => 'estado_proyecto treeview-menu'], 'visible' => Yii::$app->user->can('Estudiante'), 'items'   => [
+                        ['label' => 'Ver Jurados', 'url' => ['/jurado-has-proyecto/verjurado'], 'visible' => Yii::$app->user->can('Estudiante')],
+                    ],
+                ],
+                ['label'   => 'Anteproyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Secretario'), 'items'   => [
+                        ['label' => 'Ver Anteproyectos', 'url' => ['/anteproyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                    ],
+                ],
+                ['label'   => 'Anteproyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Comite'), 'items'   => [
+                        ['label' => 'Anteproyectos', 'url' => ['/anteproyecto/index'], 'visible' => Yii::$app->user->can('Comite')],
+                        ['label' => 'Asignar Concepto', 'url' => ['/revision/index'], 'visible' => Yii::$app->user->can('Comite')],
+                    ],
+                ],
+                ['label'   => 'Anteproyecto', 'options' => ['class' => 'estado_anteproyecto treeview-menu'], 'visible' => Yii::$app->user->can('Estudiante'), 'items'   => [
+                        ['label' => 'Crear Anteproyecto', 'url' => ['/anteproyecto/index'], 'visible' => Yii::$app->user->can('Estudiante')],
+                        ['label' => 'Seguimiento', 'url' => ['/revision/index'], 'visible' => Yii::$app->user->can('Estudiante')],
+                    ],
+                ],
+                ['label'   => 'Proyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Jurado'), 'items'   => [
+                        ['label' => 'Ver Proyecto', 'url' => ['/proyecto/index'], 'visible' => Yii::$app->user->can('Jurado')],
+                        ['label' => 'Asignar Concepto', 'url' => ['/revisionp/index'], 'visible' => Yii::$app->user->can('Jurado')],
+                    ],
+                ],
+                ['label'   => 'Proyecto', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Secretario'), 'items'   => [
 
 
-            ['label' => 'Ver Proyectos', 'url' => ['/proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Asignar director', 'url' => ['/director-proyecto-por-proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Asignar Sustentación', 'url' => ['/sustentacion-final/index'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Asignar Jurados', 'url' => ['/jurado-has-proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Novedades', 'url' => ['/novedades/index'], 'visible' => Yii::$app->user->can('Secretario')],
-        //Estudiante
-        ],],
-    ['label'   => 'Proyecto', 'options' => ['class' => 'estado_proyecto treeview-menu'], 'visible' => Yii::$app->user->can('Estudiante'), 'items'   => [
-            ['label' => 'Crear Proyecto', 'url' => ['/proyecto/index'], 'visible' => Yii::$app->user->can('Estudiante')],
-            ['label' => 'Seguimiento', 'url' => ['/revisionp/index'], 'visible' => Yii::$app->user->can('Estudiante')],
-            ['label' => 'Sustentación', 'url' => ['/sustentacion-final/index'], 'visible' => Yii::$app->user->can('Estudiante')],
-            ['label' => 'Novedades', 'url' => ['/novedades/index'], 'visible' => Yii::$app->user->can('Estudiante')],
-        ],
-    ],
-    ['label' => 'Cronograma', 'url' => ['/evento/index'], 'visible' => Yii::$app->user->can('Secretario')],
-    ['label' => 'Cronograma', 'url' => ['/evento/cronograma'], 'visible' => Yii::$app->user->can('Estudiante')],
-    ['label' => 'Cronograma', 'url' => ['/evento/cronograma'], 'visible' => Yii::$app->user->can('Docente')],
-    ['label' => 'Cronograma', 'url' => ['/evento/cronograma'], 'visible' => Yii::$app->user->can('Comite')],
-    // asi se estbalece que usuario puede ver que menu 'visible' => Yii::$app->user->can('Estudiante')
-    ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/index'], 'visible' => Yii::$app->user->can('Docente')],
-    ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Estudiante')],
-    ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Secretario')],
-    ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Comite')],
-    ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Jurado')],
-    ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->isGuest],
-    ['label' => 'Documentos', 'url' => ['/documento/index']],
-    ['label'   => 'Reportes', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Secretario'), 'items'   => [
-            ['label' => 'Estudiante', 'url' => ['/user/reportestu'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Anteproyecto', 'url' => ['/anteproyecto/reportante'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Proyecto', 'url' => ['/proyecto/reportpro'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Directores de proyectos', 'url' => ['/director-proyecto-por-proyecto/reportdir'], 'visible' => Yii::$app->user->can('Secretario')],
-        ],
-    ],
-    ['label'   => 'Administrar', 'options' => ['class' => 'treeview-menu'], 'visible' => !Yii::$app->user->isGuest, 'items'   => [
-            ['label' => 'Gestionar Usuarios', 'url' => ['/user/index'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Cambiar Contraseña', 'url' => ['/site/change-password']],
-            ['label' => 'Registrar', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Crear Jurado', 'url' => ['/jurado/index'], 'visible' => Yii::$app->user->can('Secretario')],
-            ['label' => 'Crear director', 'url' => ['/director-proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
-        ],
-    ],
-];
-if (Yii::$app->user->isGuest)
-{
-    $menuItems[] = ['label' => 'Iniciar sesión', 'url' => ['/site/login']];
-}
-else
-{
-    $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                    'Cerrar Sesión (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-}
-echo Nav::widget([
-    'options' => ['class' => 'navbar-nav navbar-right'],
-    'items'   => $menuItems,
-]);
-NavBar::end();
-?>
+                        ['label' => 'Ver Proyectos', 'url' => ['/proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Asignar director', 'url' => ['/director-proyecto-por-proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Asignar Sustentación', 'url' => ['/sustentacion-final/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Asignar Jurados', 'url' => ['/jurado-has-proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Novedades', 'url' => ['/novedades/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                    //Estudiante
+                    ],],
+                ['label'   => 'Proyecto', 'options' => ['class' => 'estado_proyecto treeview-menu'], 'visible' => Yii::$app->user->can('Estudiante'), 'items'   => [
+                        ['label' => 'Crear Proyecto', 'url' => ['/proyecto/index'], 'visible' => Yii::$app->user->can('Estudiante')],
+                        ['label' => 'Seguimiento', 'url' => ['/revisionp/index'], 'visible' => Yii::$app->user->can('Estudiante')],
+                        ['label' => 'Sustentación', 'url' => ['/sustentacion-final/index'], 'visible' => Yii::$app->user->can('Estudiante')],
+                        ['label' => 'Novedades', 'url' => ['/novedades/index'], 'visible' => Yii::$app->user->can('Estudiante')],
+                    ],
+                ],
+                ['label' => 'Cronograma', 'url' => ['/evento/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                ['label' => 'Cronograma', 'url' => ['/evento/cronograma'], 'visible' => Yii::$app->user->can('Estudiante')],
+                ['label' => 'Cronograma', 'url' => ['/evento/cronograma'], 'visible' => Yii::$app->user->can('Docente')],
+                ['label' => 'Cronograma', 'url' => ['/evento/cronograma'], 'visible' => Yii::$app->user->can('Comite')],
+                // asi se estbalece que usuario puede ver que menu 'visible' => Yii::$app->user->can('Estudiante')
+                ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/index'], 'visible' => Yii::$app->user->can('Docente')],
+                ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Estudiante')],
+                ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Secretario')],
+                ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Comite')],
+                ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->can('Jurado')],
+                ['label' => 'Banco de proyectos', 'url' => ['/conocimiento/ver'], 'visible' => Yii::$app->user->isGuest],
+                ['label' => 'Documentos', 'url' => ['/documento/index']],
+                ['label'   => 'Reportes', 'options' => ['class' => 'treeview-menu'], 'visible' => Yii::$app->user->can('Secretario'), 'items'   => [
+                        ['label' => 'Estudiante', 'url' => ['/user/reportestu'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Anteproyecto', 'url' => ['/anteproyecto/reportante'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Proyecto', 'url' => ['/proyecto/reportpro'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Directores de proyectos', 'url' => ['/director-proyecto-por-proyecto/reportdir'], 'visible' => Yii::$app->user->can('Secretario')],
+                    ],
+                ],
+                ['label'   => 'Administrar', 'options' => ['class' => 'treeview-menu'], 'visible' => !Yii::$app->user->isGuest, 'items'   => [
+                        ['label' => 'Gestionar Usuarios', 'url' => ['/user/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Cambiar Contraseña', 'url' => ['/site/change-password']],
+                        ['label' => 'Registrar', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Crear Jurado', 'url' => ['/jurado/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                        ['label' => 'Crear director', 'url' => ['/director-proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
+                    ],
+                ],
+            ];
+            if (Yii::$app->user->isGuest)
+            {
+                $menuItems[] = ['label' => 'Iniciar sesión', 'url' => ['/site/login']];
+            }
+            else
+            {
+                $menuItems[] = '<li>'
+                        . Html::beginForm(['/site/logout'], 'post')
+                        . Html::submitButton(
+                                'Cerrar Sesión (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
+                        )
+                        . Html::endForm()
+                        . '</li>';
+            }
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'items'   => $menuItems,
+            ]);
+            NavBar::end();
+            ?>
 
             <div class="container">
-            <?=
-            Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ])
-            ?>
-            <?= Alert::widget() ?>
-            <?= $content ?>
+                <?=
+                Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ])
+                ?>
+                <?= Alert::widget() ?>
+                <?= $content ?>
             </div>
         </div>
 
@@ -197,7 +200,7 @@ NavBar::end();
         </script>
 
 
-<?php $this->endBody() ?>
+        <?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>

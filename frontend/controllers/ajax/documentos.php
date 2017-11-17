@@ -2,11 +2,32 @@
 
 include_once './visual.php';
 include_once './conexion.php';
+$where = "";
+if ($_POST['nombre'] != '')
+{
+	
+	$_POST['nombre']=trim($_POST['nombre']);
+	$var=explode(' ',$_POST['nombre']);
+	foreach($var as $temp)
+	{	
+		$temp=htmlspecialchars($temp);
+		$where[] = ' UPPER(trim(`documento`.`nombre`)) LIKE "%' . strtoupper(trim($temp)) . '%" ';		
+	}
+}
+if ($where != '')
+{
+    $where = ' WHERE ' . implode(' AND ', $where);
+}
 $sql  = 'SELECT 
   `documento`.`nombre`,
   `documento`.`iddocumento`
 FROM
-  `documento`';
+  `documento`
+  ' . $where . '
+ORDER BY
+  `documento`.`nombre`
+  ';
+  echo $sql.'<br>';
 $Data = conexion::records($sql);
 foreach ($Data as $key => $temp)
 {

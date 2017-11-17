@@ -13,8 +13,7 @@ use yii\helpers\Url;
 $this->title                   = 'Documentos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
 <script src="js/documento.js<?php echo '?v=' . date('YmdHis'); ?>"></script>
 <div class="col-md-4">
     <div class="panel panel-primary">
@@ -27,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-xs-12">
                         <label>Coincidencia</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
                             <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button">x</button>
+                                <button onkeyup="search();" class="btn btn-danger" type="button">x</button>
                             </span>
                         </div><!-- /input-group -->
                     </div>
