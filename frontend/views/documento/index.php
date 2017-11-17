@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <?php
 
 use yii\helpers\Html;
@@ -13,129 +14,75 @@ use yii\helpers\Url;
 $this->title                   = 'Documentos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="documento-index">
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+<script src="js/documento.js"></script>
+<div class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Buscar
+        </div>
+        <div class="panel-body">
+            <form id="search">
+                <div class="container-alt">
+                    <div class="col-xs-12">
+                        <label>Coincidencia</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="col-xs-12">
+                        <label>Tipo de documentos</label>
+                        <div class="input-group">
+                            <select class="form form-control">
+                                <option value="">Todos</option>
+                                <option value="">Resolucion</option>
+                                <option value="">Oficio</option>
+                                <option value="">Formatos</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-8">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <?= Html::encode($this->title) ?>
+        </div>
+        <div class="panel-body">
+            <div class="documento-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
+                <?php
+                Modal::begin([
+                    'header' => '<h4>Documentos</h4>',
+                    'id'     => 'modal',
+                    'size'   => 'modal-lg',
+                ]);
+                echo "<div id='modalContent'></div>";
 
-    <?php
-    Modal::begin([
-        'header' => '<h4>Documentos</h4>',
-        'id'     => 'modal',
-        'size'   => 'modal-lg',
-    ]);
-    echo "<div id='modalContent'></div>";
+                Modal::end();
+                ?>
+                <?php
+                if (Yii::$app->user->can('Secretario'))
+                {
+                    ?>
+                    <p>
+                        <button type="button" id="modalButton" class="btn btn-primary" value="index.php?r=documento/create">Subir Documento</button>
+                    </p>
+                <?php } ?>
 
-    Modal::end();
-    ?>
-    <?php
-    if (Yii::$app->user->can('Secretario'))
-    {
-        ?>
-        <p>
-            <?= Html::button('Subir Documento', ['value' => Url::to('index.php?r=documento/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
-        </p>
-    <?php } ?>
-    <?php Pjax::begin(); ?>    
-    <?=
-    GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel'  => $searchModel,
-        'columns'      => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'nombre',
-            //  'archivo',
-            [ 'visible'  => Yii::$app->user->isGuest,
-                'class'    => 'yii\grid\ActionColumn',
-                'template' => '{download}',
-                'buttons'  => [
-                    'download' => function ($url, $model)
-                    {
-                        return Html::a(
-                                        Html::img('image/descarga.png', ['width' => '15']), ['documento/download', 'id' => $model->iddocumento], [
-                                    'title'     => 'Descargar',
-                                    'data-pjax' => '0',
-                                        ]
-                        );
-                    },],
-                    ],
-                    [ 'visible'  => Yii::$app->user->can('Estudiante'),
-                        'class'    => 'yii\grid\ActionColumn',
-                        'template' => '{download}',
-                        'buttons'  => [
-                            'download' => function ($url, $model)
-                            {
-                                return Html::a(
-                                                Html::img('image/descarga.png', ['width' => '15']), ['documento/download', 'id' => $model->iddocumento], [
-                                            'title'     => 'Descargar',
-                                            'data-pjax' => '0',
-                                                ]
-                                );
-                            },
-                                ],
-                            ],
-                            [ 'visible'  => Yii::$app->user->can('Comite'),
-                                'class'    => 'yii\grid\ActionColumn',
-                                'template' => '{download}',
-                                'buttons'  => [
-                                    'download' => function ($url, $model)
-                                    {
-                                        return Html::a(
-                                                        Html::img('image/descarga.png', ['width' => '15']), ['documento/download', 'id' => $model->iddocumento], [
-                                                    'title'     => 'Descargar',
-                                                    'data-pjax' => '0',
-                                                        ]
-                                        );
-                                    },
-                                        ],
-                                    ],
-                                    [ 'visible'  => Yii::$app->user->can('Jurado'),
-                                        'class'    => 'yii\grid\ActionColumn',
-                                        'template' => '{download}',
-                                        'buttons'  => [
-                                            'download' => function ($url, $model)
-                                            {
-                                                return Html::a(
-                                                                Html::img('image/descarga.png', ['width' => '15']), ['documento/download', 'id' => $model->iddocumento], [
-                                                            'title'     => 'Descargar',
-                                                            'data-pjax' => '0',
-                                                                ]
-                                                );
-                                            },
-                                                ],
-                                            ],
-                                            [ 'visible'  => Yii::$app->user->can('Docente'),
-                                                'class'    => 'yii\grid\ActionColumn',
-                                                'template' => '{download}',
-                                                'buttons'  => [
-                                                    'download' => function ($url, $model)
-                                                    {
-                                                        return Html::a(
-                                                                        Html::img('image/descarga.png', ['width' => '15']), ['documento/download', 'id' => $model->iddocumento], [
-                                                                    'title'     => 'Descargar',
-                                                                    'data-pjax' => '0',
-                                                                        ]
-                                                        );
-                                                    },
-                                                        ],
-                                                    ],
-                                                    [
-                                                        'visible'  => Yii::$app->user->can('Secretario'),
-                                                        'class'    => 'yii\grid\ActionColumn',
-                                                        'template' => '{download}, {update}, {delete}',
-                                                        'buttons'  => [
-                                                            'download' => function ($url, $model)
-                                                            {
-                                                                return Html::a(
-                                                                                Html::img('image/descarga.png', ['width' => '15']), ['documento/download', 'id' => $model->iddocumento], [
-                                                                            'title'     => 'Descargar',
-                                                                            'data-pjax' => '0',
-                                                                                ]
-                                                                );
-                                                            },
-                                                                ],
-                                                            ],
-                                                        ],
-                                                    ]);
-                                                    ?>
-                                                    <?php Pjax::end(); ?></div>
+                <div id="data">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

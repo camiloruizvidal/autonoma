@@ -66,15 +66,8 @@ function notifi()
         $('#w3 li a').html('<i id="not_ante"></i>Ver Anteproyectos');
     }
 }
-function inputsearch()
-{
-    $('input[name="DocumentoSearch[nombre]"]').parent().html('<div class="input-group"><span class="input-group-btn"><button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button></span>' + $('input[name="DocumentoSearch[nombre]"]').parent().html() + '</div>');
-
-
-}
 $(function ()
 {
-    inputsearch();
     notifi();
     alertas();
     setInterval(cargandoalertas, 3000);
