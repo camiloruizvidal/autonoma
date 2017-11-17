@@ -21,7 +21,6 @@ class conexion
         $conn = self::conn();
         $Res  = array();
         $data = $conn->query($sql);
-        $data->fetch(PDO::FETCH_ASSOC);
         foreach ($data as $row)
         {
             $temp2 = array();

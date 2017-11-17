@@ -13,10 +13,12 @@ use Yii;
  */
 class Documento extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
-     public $file;
+    public $file;
+
     public static function tableName()
     {
         return 'documento';
@@ -28,8 +30,8 @@ class Documento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'archivo'], 'required'],
-            [['nombre', 'archivo'], 'string', 'max' => 100],
+            [['nombre', 'archivo', 'id_documento_tipo'], 'required'],
+            [['nombre', 'archivo', 'id_documento_tipo'], 'string', 'max' => 100],
             [['file'], 'file', 'extensions' => 'doc, pdf, docx', 'wrongExtension' => 'El archivo {file} no contiene una extensión permitida {extensions}'],
         ];
     }
@@ -40,11 +42,12 @@ class Documento extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'iddocumento' => 'Iddocumento',
-            'nombre' => 'Nombre',
-            'archivo' => 'Archivo',
-            'file' => 'Archivo',
-
+            'iddocumento'       => 'Iddocumento',
+            'nombre'            => 'Nombre',
+            'archivo'           => 'Archivo',
+            'file'              => 'Archivo',
+            'id_documento_tipo' => 'documentotipo'
         ];
     }
+
 }

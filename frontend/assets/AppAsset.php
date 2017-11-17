@@ -16,7 +16,7 @@ class AppAsset extends AssetBundle
         'css/form.css'
     ];
     public $js = [
-      'js/main.js', // aqui se delpliega el bootstrap
+      'js/main.js',
       
     ];
     public $depends = [

@@ -13,11 +13,12 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
+    //<?= $form->field($model, 'id_documento_tipo')->dropDownList(frontend\models\DocumentoTipo::find()->all()) ?>
 
-      <?= $form->field($model, 'file')->fileInput() ?>
+    <?= $form->field($model, 'file')->fileInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Subir', ['class' =>  'btn btn-primary']) ?>
+        <?= Html::submitButton('Subir', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

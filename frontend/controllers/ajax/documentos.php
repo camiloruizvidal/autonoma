@@ -5,14 +5,14 @@ include_once './conexion.php';
 $where = "";
 if ($_POST['nombre'] != '')
 {
-	
-	$_POST['nombre']=trim($_POST['nombre']);
-	$var=explode(' ',$_POST['nombre']);
-	foreach($var as $temp)
-	{	
-		$temp=htmlspecialchars($temp);
-		$where[] = ' UPPER(trim(`documento`.`nombre`)) LIKE "%' . strtoupper(trim($temp)) . '%" ';		
-	}
+
+    $_POST['nombre'] = trim($_POST['nombre']);
+    $var             = explode(' ', $_POST['nombre']);
+    foreach ($var as $temp)
+    {
+        $temp    = htmlspecialchars($temp);
+        $where[] = ' UPPER(trim(`documento`.`nombre`)) LIKE "%' . strtoupper(trim($temp)) . '%" ';
+    }
 }
 if ($where != '')
 {
@@ -20,14 +20,15 @@ if ($where != '')
 }
 $sql  = 'SELECT 
   `documento`.`nombre`,
+  COALESCE(`documento_tipo`.`descripcion`,"NN") as descripcion,
   `documento`.`iddocumento`
 FROM
   `documento`
+  LEFT OUTER JOIN `documento_tipo` ON (`documento`.`id_documento_tipo` = `documento_tipo`.`id_documento_tipo`)
   ' . $where . '
 ORDER BY
   `documento`.`nombre`
   ';
-  echo $sql.'<br>';
 $Data = conexion::records($sql);
 foreach ($Data as $key => $temp)
 {
@@ -45,4 +46,4 @@ foreach ($Data as $key => $temp)
               </div>';
     $Data[$key]          = $temp;
 }
-echo visual::Tabla($Data, array('#', 'Proyectos', 'Opciones'), 'table_documentos');
+echo visual::Tabla($Data, array('#', 'Proyectos', 'Tipo', 'Opciones'), 'table_documentos');
