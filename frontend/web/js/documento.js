@@ -71,15 +71,18 @@ function limpiar(input)
 
 function search()
 {
-    $('#nombre').keyup(function ()
+    $('#nombre,#inicio,#fin').keyup(function ()
     {
         tabla();
     });
-
 }
-
+function fechas()
+{
+$('#inicio,#fin').date
+}
 $(function ()
 {
+    fechas();
     search();
     tabla();
 });

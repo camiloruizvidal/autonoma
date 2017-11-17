@@ -47,6 +47,24 @@ foreach ($data as $temp)
                             </span>
                         </div><!-- /input-group -->
                     </div>
+                    <div class="col-xs-6">
+                        <label>Fecha inicio</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="inicio" id="inicio" placeholder="Fecha de inicio">
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#inicio');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="col-xs-6">
+                        <label>Fecha fin</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="fin" id="fin" placeholder="Fecha de fin">
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#fin');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
                     <div class="col-xs-12">
                         <label>Tipo de documentos</label>
                         <div class="input-group">
