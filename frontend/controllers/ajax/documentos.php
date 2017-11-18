@@ -13,7 +13,7 @@ function iniciar()
         foreach ($var as $temp)
         {
             $temp    = htmlspecialchars($temp);
-            $where[] = ' UPPER(trim(`documento`.`nombre`)) LIKE "%' . strtoupper(trim($temp)) . '%" ';
+            $where[] = ' LOWER(trim(`documento`.`nombre`)) LIKE "%' . strtolower(trim($temp)) . '%" ';
         }
     }
     if ($_POST['id_tipo_documento'] != '-1')

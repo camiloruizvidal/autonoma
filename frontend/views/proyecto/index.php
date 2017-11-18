@@ -4,103 +4,121 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ProyectoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Proyectos';
+$this->title                   = 'Proyectos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="proyecto-index">
+<link href="css/jquery/jquery-ui.min.css" rel="stylesheet"/>
+<script src="js/jquery/jquery-ui.min.js"></script>
+<script src="js/proyecto.js<?php echo '?v=' . date('YmdHis'); ?>"></script>
+<style>
+    table.dataTable tbody th, table.dataTable tbody td{
+        padding: 1px 1px;
+    }
+    .container{
+        max-width: 10000px !important;
+    }
+</style>
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Buscar <?= Html::encode($this->title) ?>
+        </div>
+        <div class="panel-body">
+            <form id="search">
+                <div class="col-md-4">
+                    <label>Estudiante</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
+                        <span class="input-group-btn">
+                            <button onclick="limpiar('#nombre');" class="btn btn-danger" type="button">x</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Proyecto</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="proyecto" id="proyecto" placeholder="nombre">
+                        <span class="input-group-btn">
+                            <button onclick="limpiar('#proyecto');" class="btn btn-danger" type="button">x</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Jurado</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="jurado" id="jurado" placeholder="nombre">
+                        <span class="input-group-btn">
+                            <button onclick="limpiar('#jurado');" class="btn btn-danger" type="button">x</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Publicados</label>
+                    <div class="input-group">
+                        <select class="form-control" name="activo" id="activo">
+                            <option value="-1">TODOS</option>
+                            <option value="1">SI</option>
+                            <option value="0">NO</option>
+                        </select>
+                        <span class="input-group-btn">
+                            <button onclick="limpiar('#activo');" class="btn btn-danger" type="button">x</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Fecha inicio</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="inicio" id="inicio" placeholder="YYYY-mm-dd">
+                        <span class="input-group-btn">
+                            <button onclick="limpiar('#inicio');" class="btn btn-danger" type="button">x</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Fecha fin</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="fin" id="fin" placeholder="YYYY-mm-dd">
+                        <span class="input-group-btn">
+                            <button onclick="limpiar('#fin');" class="btn btn-danger" type="button">x</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <?= Html::encode($this->title) ?>
+        </div>
+        <div class="panel-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <?php  Modal::begin([
-        'header' => '<h4>Proyecto</h4>',
-        'id' => 'modal',
-        'size' => 'modal-lg',
-    ]);
-    echo "<div id='modalContent'></div>";
+            <?php
+            if (Yii::$app->user->can('Estudiante'))
+            {
+                ?>
+                <p>
+                    <?= Html::button('Crear Proyecto', ['value' => Url::to('index.php?r=proyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
 
-    Modal::end();
-    ?>
-    <?php if (Yii::$app->user->can('Estudiante')) { ?>
-    <p>
-      <?= Html::button('Crear Proyecto', ['value'=>Url::to('index.php?r=proyecto/create'),'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
+                </p>
+            <?php } ?>
+            <div id="data"></div>
+        </div>
+    </div>
+</div>
+<?php
+Modal::begin([
+    'header' => '<h4>Proyecto</h4>',
+    'id'     => 'modal',
+    'size'   => 'modal-lg',
+]);
+echo "<div id='modalContent'></div>";
 
-    </p>
-    <?php  } ?>
-
-
-    <?= GridView::widget([
-          'dataProvider' => $dataProvider,
-          'filterModel' => $searchModel,
-          'rowOptions' =>function($model){
-              if ($model->estado == 0 && Yii::$app->user->can('Secretario')) {
-                return ['class' => 'danger'];
-              }elseif ($model->estado == 1 && Yii::$app->user->can('Secretario')) {
-                return ['class' => 'success'];
-              }
-
-          },
-          'columns' => [
-              ['class' => 'yii\grid\SerialColumn'],
-
-              //'idproyecto',
-              [ // asi se establece un campo de otra tabla con el searching GridView
-                'attribute' => 'id',
-                'value' =>     'id0.username',
-              ],
-              'nombre',
-              'descripcion',
-            //  'archivo_proyecto',
-              'date_create',
-              //'idjurado0.nombre',
-              'jurado1',
-              'jurado2',
-
-
-
-              [
-                'visible' => Yii::$app->user->can('Estudiante'),
-               'class' => 'yii\grid\ActionColumn',
-               'template' => '{update}',
-              ],
-              [
-                'visible' => Yii::$app->user->can('Secretario'),
-               'class' => 'yii\grid\ActionColumn',
-               'template' => '{update}, {public}',
-               'buttons' => [
-                 'public' => function ($url, $model) {
-              return Html::a(
-                  Html::img('image/publicar.png',['width' => '15']),
-                  ['proyecto/public', 'id' => $model->idproyecto],
-                  [
-                      'title' => 'Publicar',
-                      'data-pjax' => '0',
-                  ]
-              );
-          },
-               ],
-              ],
-
-              [
-                'visible' => Yii::$app->user->can('Jurado'),
-               'class' => 'yii\grid\ActionColumn',
-               'template' => '{download}, {view}',
-               'buttons' => [
-                          'download' => function ($url, $model) {
-                       return Html::a(
-                             Html::img('image/descarga.png',['width' => '15']),
-                           ['proyecto/download', 'id' => $model->idproyecto],
-                           [
-                               'title' => 'Descargar',
-                               'data-pjax' => '0',
-                           ]
-                       );
-                   },
-               ],
-           ],
-          ],
-      ]); ?>
-  </div>
+Modal::end();
+?>

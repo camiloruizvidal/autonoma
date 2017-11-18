@@ -7,12 +7,12 @@ function iniciar()
     $where = '';
     if ($_POST['nombre'] != '')
     {
-        $where[] = ' (trim(UPPER(`user`.`nombre`)) LIKE \'%' . trim(strtoupper($_POST['nombre'])) . '%\' 
-                 OR  trim(UPPER(`user`.`apellido`)) LIKE \'%' . trim(strtoupper($_POST['nombre'])) . '%\') ';
+        $where[] = ' (trim(LOWER(`user`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['nombre'])) . '%\' 
+                 OR  trim(LOWER(`user`.`apellido`)) LIKE \'%' . trim(strtolower($_POST['nombre'])) . '%\') ';
     }
     if ($_POST['proyecto'] != '')
     {
-        $where[] = ' trim(UPPER(`anteproyecto`.`nombre`)) LIKE \'%' . trim(strtoupper($_POST['proyecto'])) . '%\' ';
+        $where[] = ' trim(LOWER(`anteproyecto`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['proyecto'])) . '%\' ';
     }
     if ($_POST['idmodalidad'] != '-1')
     {
