@@ -145,9 +145,6 @@ h2 {
   width: 72px;
 }
 
-input[type=checkbox] {
-  opacity: 0;
-}
 
 input[type=checkbox]:focus ~ .checkbox {
   outline: -webkit-focus-ring-color auto 5px;
@@ -198,16 +195,6 @@ input[type=checkbox]:focus ~ .checkbox {
 }
 
 .checkbox {
-  background: transparent;
-  border: 1px solid white;
-  border-radius: 2px;
-  display: block;
-  height: 14px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 3px;
-  width: 14px;
 }
 
 .checkbox::before {
