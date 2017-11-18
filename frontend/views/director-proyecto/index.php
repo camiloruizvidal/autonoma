@@ -10,39 +10,46 @@ use yii\helpers\Url;
 /* @var $searchModel backend\models\DirectorProyectoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Director de Proyectos';
+$this->title                   = 'Director de Proyectos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="director-proyecto-index">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <?= Html::encode($this->title) ?>
+    </div>
+    <div class="panel-body">
+        <?php
+        Modal::begin([
+            'header' => '<h4>Directores</h4>',
+            'id'     => 'modal',
+            'size'   => 'modal-lg',
+        ]);
+        echo "<div id='modalContent'></div>";
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <?php
-
-     // se realiza una funcion para hacer un formulario mas bonito
-      Modal::begin([
-          'header' => '<h4>Directores</h4>',
-          'id' => 'modal',
-          'size' => 'modal-lg',
-      ]);
-      echo "<div id='modalContent'></div>";
-
-      Modal::end();
-    ?>
-    <p>
-        <?= Html::button('Crear Director Proyecto', ['value'=>Url::to('index.php?r=director-proyecto/create'),'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
-
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            //'iddirector_proyecto',
-            'nombre',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+        Modal::end();
+        ?>
+        <?=
+        GridView::widget([
+            'dataProvider' => $dataProvider,
+            //'filterModel'  => $searchModel,
+            'columns'      => [
+                ['class' => 'yii\grid\SerialColumn'],
+                //'iddirector_proyecto',
+                'nombre',
+                ['class' => 'yii\grid\ActionColumn'],
+            ],
+        ]);
+        ?>
+    </div>
+    <div class="panel-footer">
+        <?= Html::button('Crear Director Proyecto', ['value' => Url::to('index.php?r=director-proyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
+    </div>
 </div>
+<script>
+    $(function ()
+    {
+        $('.summary').hide();
+        $('table').attr('id', 'table_dpp');
+        $('#table_dpp').DataTable(languaje());
+    });
+</script>
