@@ -67,7 +67,6 @@ FROM
   {$where}
 ORDER BY
   1 DESC";
-  echo $sql;
     $data = conexion::records($sql);
     foreach ($data as $key => $temp)
     {
