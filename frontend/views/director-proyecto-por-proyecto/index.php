@@ -10,41 +10,54 @@ use yii\helpers\Url;
 /* @var $searchModel backend\models\DirectorProyectoPorProyectoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Director Por Proyectos';
+$this->title                   = 'Director Por Proyectos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="director-proyecto-por-proyecto-index">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><?= Html::encode($this->title) ?></div>
+        <div class="panel-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <?php
 
-     // se realiza una funcion para hacer un formulario mas bonito
-      Modal::begin([
-          'header' => '<h4>Director por Proyecto</h4>',
-          'id' => 'modal',
-          'size' => 'modal-lg',
-      ]);
-      echo "<div id='modalContent'></div>";
+            <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+            <?php
+            // se realiza una funcion para hacer un formulario mas bonito
+            Modal::begin([
+                'header' => '<h4>Director por Proyecto</h4>',
+                'id'     => 'modal',
+                'size'   => 'modal-lg',
+            ]);
+            echo "<div id='modalContent'></div>";
 
-      Modal::end();
-    ?>
-    <p>
-        <?= Html::button('Asignar director', ['value'=>Url::to('index.php?r=director-proyecto-por-proyecto/create'),'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
+            Modal::end();
+            ?>
+            <p>
 
-    </p>
+            </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'iddirectorProyecto.nombre',
-            'idproyecto0.nombre',
-            
-
-          //  ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+            <?=
+            GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel'  => $searchModel,
+                'columns'      => [
+                    ['class' => 'yii\grid\SerialColumn'],
+                    'iddirectorProyecto.nombre',
+                    'idproyecto0.nombre',
+                ],
+            ]);
+            ?>
+        </div>
+        <div class="panel-footer">
+            <?= Html::button('Asignar director', ['value' => Url::to('index.php?r=director-proyecto-por-proyecto/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+        </div>
+    </div>
 </div>
+<script>
+    $(function ()
+    {
+        $('.summary').hide();
+        $('table').attr('id', 'table_dpp');
+        $('#w0-filters').parent().html('<tr><th>#</th><th>Director de grado</th><th>Titulo</th></tr>');
+        $('#table_dpp').DataTable(languaje());
+    });
+</script>
