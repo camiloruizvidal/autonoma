@@ -1,0 +1,12 @@
+Message-ID: <8fe0ed07e1e2c31792151b8ff7cdc78e@localhost>
+Date: Mon, 10 Apr 2017 16:27:25 +0200
+Subject: Confirmar registro
+From: =?utf-8?Q?Aplicaci=C3=B3n?= Yii <riki0885@gmail.com>
+To: ricar-08@hotmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<h1>Haga click en el siguiente enlace para finalizar tu registro</h1><a hre=
+f=3D'http://yii.local/index.php?r=3Dsite/confirm&id=3D12&authKey=3Dbm5i10F1=
+jiCrW829H1lVgBIiQXqA-z-Y'>Confirmar</a>

@@ -1,0 +1,56 @@
+Message-ID: <c2d035470d00fc4687d11a206ac2bacc@tesis.solucionescrv.com>
+Date: Mon, 09 Oct 2017 09:50:48 -0500
+Subject: Password reset for My Application
+From: My Application robot <support@example.com>
+To: octavio.c@uniautonoma.edu.co
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1507560648_1e4b9605122ea09fb329786c1b9568d7_=_"
+
+
+--_=_swift_v4_1507560648_1e4b9605122ea09fb329786c1b9568d7_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+Hello andres,
+
+Follow the link below to reset your password:
+
+ht=
+tp://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=3Dsite%2Fres=
+et-password&token=3DGy09BelwD1ChW6wLi402B2fN2yv78eEH_1507560561
+
+--_=_swift_v4_1507560648_1e4b9605122ea09fb329786c1b9568d7_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/=
+xhtml">
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/ht=
+ml; charset=3DUTF-8" />
+    <title></title>
+    </head>
+<body>
+    =
+    <div class=3D"password-reset">
+    <p>Hello andres,</p>
+
+    <p>F=
+ollow the link below to reset your password:</p>
+
+    <p><a href=3D"htt=
+p://tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=3Dsite%2Frese=
+t-password&amp;token=3DGy09BelwD1ChW6wLi402B2fN2yv78eEH_1507560561">http://=
+tesis.solucionescrv.com/autonoma/frontend/web/index.php?r=3Dsite%2Freset-pa=
+ssword&amp;token=3DGy09BelwD1ChW6wLi402B2fN2yv78eEH_1507560561</a></p>
+</=
+div>
+    </body>
+</html>
+
+
+--_=_swift_v4_1507560648_1e4b9605122ea09fb329786c1b9568d7_=_--

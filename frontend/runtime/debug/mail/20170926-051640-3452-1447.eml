@@ -1,0 +1,56 @@
+Message-ID: <178234f15bee7e40de78a5f41ea4053a@localhost>
+Date: Tue, 26 Sep 2017 05:16:40 +0200
+Subject: Password reset for My Application
+From: My Application robot <support@example.com>
+To: rit@gmail.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1506395800_2598b91249da5a825f0f7ce71c6e538d_=_"
+
+
+--_=_swift_v4_1506395800_2598b91249da5a825f0f7ce71c6e538d_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+Hello ricardo,
+
+Follow the link below to reset your password:
+
+h=
+ttp://localhost/autonoma/frontend/web/index.php?r=3Dsite%2Freset-password&t=
+oken=3DUWNhGdJyFS4OMXOy0-7T_jEET3XNQG5n_1506395799
+
+--_=_swift_v4_1506395800_2598b91249da5a825f0f7ce71c6e538d_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/=
+xhtml">
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/ht=
+ml; charset=3DUTF-8" />
+    <title></title>
+    </head>
+<body>
+    =
+    <div class=3D"password-reset">
+    <p>Hello ricardo,</p>
+
+    <p>=
+Follow the link below to reset your password:</p>
+
+    <p><a href=3D"ht=
+tp://localhost/autonoma/frontend/web/index.php?r=3Dsite%2Freset-password&am=
+p;token=3DUWNhGdJyFS4OMXOy0-7T_jEET3XNQG5n_1506395799">http://localhost/aut=
+onoma/frontend/web/index.php?r=3Dsite%2Freset-password&amp;token=3DUWNhGdJy=
+FS4OMXOy0-7T_jEET3XNQG5n_1506395799</a></p>
+</div>
+    </body>
+</html=
+>
+
+
+--_=_swift_v4_1506395800_2598b91249da5a825f0f7ce71c6e538d_=_--
