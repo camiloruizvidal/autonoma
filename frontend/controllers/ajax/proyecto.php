@@ -87,8 +87,9 @@ ORDER BY
             $button .= '<li><a href="index.php?r=proyecto%2Fview&id=' . $temp['idproyecto'] . '" title="Publicar" aria-label="Publicar" data-pjax="0" data-confirm="¿Esta seguro que desea publicar este proyecto?" data-method="post"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>';
         }
         $button .= '<li><a href="index.php?r=proyecto%2Fview&id=' . $temp['idproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-zoom-in"></span> Detalle</a></li>
+                <li><a href="index.php?r=proyecto%2Fdownload&id=' . $temp['idproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-download"></span> Descargar</a></li>
                 </ul>
-              </div>';
+              </div>';        
         $temp['idproyecto'] = $button;
         $data[$key]         = $temp;
     }
