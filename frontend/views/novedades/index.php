@@ -50,14 +50,15 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
     </div>
-    <div class="panel-footer">
-        <?php
-        if (Yii::$app->user->can('Secretario'))
-        {
-            ?>
+    <?php
+    if (Yii::$app->user->can('Secretario'))
+    {
+        ?>
+        <div class="panel-footer">
             <?= Html::button('Crear Novedad', ['value' => Url::to('index.php?r=novedades/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
-        <?php } ?>
-    </div>
+        </div>
+        <?php }
+    ?>
 </div>
 <script>
     $(function ()
