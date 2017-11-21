@@ -26,6 +26,7 @@ AppAsset::register($this);
         <script src="js/toastr.min.js"></script>
         <link href="css/toastr.min.css" rel="stylesheet">
         <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
     </head>
     <body>
         <?php $this->beginBody() ?>
@@ -132,6 +133,7 @@ AppAsset::register($this);
             ?>
 
             <div class="container">
+                <button onclick="history.back()" class="btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button>
                 <?=
                 Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

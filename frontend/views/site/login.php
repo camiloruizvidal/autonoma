@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <form id="login_form" method="post" name="Login_Form" class="form-signin">       
             <?php $form                          = ActiveForm::begin(['id' => 'login-form']); ?>
             <h3 class="form-signin-heading">Bienvenido, por favor inicie sesión</h3>
+            <center><img src="imagen/autonoma.png" class="img-responsive" width="60%"></center>
             <hr class="colorgraph"><br>
             <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
             <?= $form->field($model, 'password')->passwordInput() ?>

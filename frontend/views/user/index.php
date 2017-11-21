@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="col-md-12">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Filtros <i>//Aun no funciona</i>
+            Filtros
         </div>
         <div class="panel-body">
             <form id="search">
@@ -82,6 +82,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="panel-footer">
+            <a href="index.php?r=site%2Fsignup" class="btn btn-success"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrar nuevo usuario</a>
         </div>
     </div>
 </div>
