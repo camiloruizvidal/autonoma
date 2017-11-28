@@ -37,7 +37,7 @@ foreach ($data as $temp)
         </div>
         <div class="panel-body">
             <div class="col-md-4">
-                <label>Tipo de proyectos</label>
+                <label>Tipo de programa</label>
                 <select class="form form-control">
                     <?php
                     echo $option;
