@@ -13,6 +13,9 @@ use yii\helpers\Url;
 $this->title                   = 'Director Por Proyectos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
+	
 <div class="director-proyecto-por-proyecto-index">
     <div class="panel panel-primary">
         <div class="panel-heading"><?= Html::encode($this->title) ?></div>

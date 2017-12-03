@@ -134,3 +134,7 @@ $(function ()
                 .load($(this).attr('value'));
     });
 });
+window.onload = function ()
+{
+//	$('select').select2();
+}

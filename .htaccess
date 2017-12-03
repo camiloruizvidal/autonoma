@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+
+
+Rewriterule ^index.php$  frontend/web/index.php
+Rewriterule ^js/(.*)$ frontend/web/js/$1
+Rewriterule ^css/(.*)$ frontend/web/css/$1
+Rewriterule ^imagen/(.*)$ frontend/web/imagen/$1
+Rewriterule ^image/(.*)$ frontend/web/image/$1
+    

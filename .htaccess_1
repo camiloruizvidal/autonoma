@@ -1,0 +1,187 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+
+
+Rewriterule ^tbl_insumos$  sources/bin/modules/tbl_insumos/tbl_insumos.php
+Rewriterule ^tbl_ins_proveedores$  sources/bin/modules/tbl_ins_proveedores/tbl_ins_proveedores.php
+Rewriterule ^tbl_ins_orden_pedido$  sources/bin/modules/tbl_ins_orden_pedido/tbl_ins_orden_pedido.php
+
+
+Rewriterule ^cambios_historia.html$ sources/bin/modules/dental/cambios_historia.php
+Rewriterule ^Saldo_vigente.html$ sources/bin/modules/informes/Saldo_vigente.php
+Rewriterule ^cuenta.html$ sources/bin/modules/Cuenta/Usuario.php
+Rewriterule ^SaldoNoVigente.html$ sources/bin/modules/informes/SaldoNoVigente.php
+Rewriterule ^CitasPaciente.html$ sources/bin/modules/informes/CitasPaciente.php
+Rewriterule ^CitasAplazadas.html$ sources/bin/modules/informes/CitasAplazadas.php
+Rewriterule ^CuentasPorPagar.html$ sources/bin/modules/informes/CuentasPorPagar.php
+Rewriterule ^EgresoPlanCentroCostos.html$ sources/bin/modules/informes/EgresoPlanCentroCostos.php
+Rewriterule ^EgresoPlanTratamiento.html$ sources/bin/modules/informes/EgresoPlanTratamiento.php
+Rewriterule ^FinanciacionesPorPacientes.html$ sources/bin/modules/informes/FinanciacionesPorPacientes.php
+Rewriterule ^HistoriaPaciente.html$ sources/bin/modules/informes/HistoriaPaciente.php
+Rewriterule ^HistoricoEvoluciones.html$ sources/bin/modules/informes/HistoricoEvoluciones.php
+Rewriterule ^p_menu.php$ sources/bin/modules/p_files/p_menu.php
+Rewriterule ^p_scripts.php$ sources/bin/modules/p_files/p_scripts.php
+Rewriterule ^p_logo.php$ sources/bin/modules/p_files/p_logo.php
+Rewriterule ^p_notifications.php$ sources/bin/modules/p_files/p_notifications.php
+Rewriterule ^ver_citas_pacietes.html$ sources/bin/modules/cliente_ver_citas/ver_citas.php
+Rewriterule ^resolucion.html$ sources/bin/modules/Dian/Resolucion.php
+Rewriterule ^generar_factura.html$ sources/bin/modules/facturas/generar_factura.php
+Rewriterule ^ver_factura.html$ sources/bin/modules/facturas/ver_factura.php
+Rewriterule ^imprimir_facturas.php$ sources/bin/modules/facturas/Imprimir.php
+Rewriterule ^remision.html$ sources/bin/modules/remision/remision.php
+Rewriterule ^VerRemision.html$ sources/bin/modules/remision/VerRemision.php
+Rewriterule ^detalleproximacita.html$ sources/bin/modules/detalleproximacita/detalleproximacita.php
+Rewriterule ^verpacientes.html$ sources/bin/modules/Pacientes/Pacientes.php
+Rewriterule ^consentimiento.html$ sources/bin/modules/consentimiento/consentimiento.php
+Rewriterule ^formatoconsentimiento.html$ sources/bin/modules/consentimiento/newformato.php
+Rewriterule ^inf_list_paciente.html$ sources/bin/modules/informes/listado_pacientes.php
+Rewriterule ^Nuevo_Usuario.html$ sources/bin/modules/user/new_user.php
+
+#Informes financieros
+Rewriterule ^EgresosxEspecialidad.html$ sources/bin/modules/informesfinancieros/InfFinEgresosxEspecialidad.php
+Rewriterule ^IngresosConsultorio.html$ sources/bin/modules/informesfinancieros/InfFinIngresosConsultorio.php
+Rewriterule ^IngresosxEspecialidad.html$ sources/bin/modules/informesfinancieros/InfFinIngresosxEspecialidad.php
+Rewriterule ^PagosEspecialista.html$ sources/bin/modules/informesfinancieros/InfFinPagosEspecialista.php
+
+
+
+
+Rewriterule ^img/(.*)/profile.jpg$ sources/bin/db_data/patient/$1/profile.jpg
+
+
+Rewriterule ^pago_especialistas.html$ sources/bin/modules/pagos_especialistas/pago_especialistas.php
+Rewriterule ^subirsoportes.html$ sources/bin/modules/pagos_especialistas/subirsoportes.php
+Rewriterule ^Recibo.php$ sources/bin/modules/pagos_especialistas/Recibo.php
+Rewriterule ^perfil_paciente.html$ sources/bin/modules/Perfil_paciente/perfil_paciente.php
+Rewriterule ^citas.html$ sources/bin/modules/Perfil_paciente/citas.php
+Rewriterule ^VerPagos.html$ sources/bin/modules/especialistas_ver_pago/pago_especialistas.php
+Rewriterule ^egresos.html$ sources/bin/modules/egresos_medicall/index.php
+Rewriterule ^cambiar_porcentajes.html$ sources/bin/modules/cambiar_porcentajes/cambiar_ganancias.php
+Rewriterule ^mensajes.html$ sources/bin/modules/mensajes/MensajesRecibidos.php
+Rewriterule ^Enviar.html$ sources/bin/modules/mensajes/EnviarMensajes.php
+Rewriterule ^subir_archivos.html$ sources/bin/modules/mensajes/subir_archivos.php
+
+Rewriterule ^pagarfinanciacion.html$ sources/bin/modules/pagos_paciente/Pagos.php
+Rewriterule ^Recibos_pacientes.php$ sources/bin/modules/pagos_paciente/Recibo.php
+Rewriterule ^prueba.html$ sources/bin/modules/prueba/index.php
+
+
+
+
+Rewriterule ^pacientes.html$ sources/bin/modules/patients/patients.php
+Rewriterule ^pacientes_grupos.html$ sources/bin/modules/patients/grupos.php
+Rewriterule ^pacientes_([a-zA-Z0-9]+).html$ sources/bin/modules/patients/patients.php?page=$1
+Rewriterule ^pacientes_ok.html$ sources/bin/modules/patients/patients.php?oknew=1
+Rewriterule ^paciente_([a-zA-Z0-9]+).html$ sources/bin/modules/patients/patient.php?id=$1
+Rewriterule ^paciente_([a-zA-Z0-9]+)_ok.html$ sources/bin/modules/patients/patient.php?id=$1&ok=$1
+Rewriterule ^paciente-editar_(.*).html$ sources/bin/modules/patients/patient_edit.php?id=$1
+Rewriterule ^paciente-nuevo.html$ sources/bin/modules/patients/patient_new.php
+
+Rewriterule ^agenda.html$ sources/bin/modules/agenda/agenda.php
+Rewriterule ^agenda_pacientes.html$ sources/bin/modules/agenda_pacientes/agenda.php
+Rewriterule ^agenda_pacientes_([a-zA-Z0-9]+).html$ sources/bin/modules/agenda_pacientes/agenda.php?id_paciente=$1
+Rewriterule ^cupos.html$ sources/bin/modules/agenda/cupos.php
+Rewriterule ^login.html$ sources/bin/modules/user/login.php
+
+Rewriterule ^historias.html$ sources/bin/modules/patients/patients.php
+Rewriterule ^historias_([a-zA-Z0-9]+).html$ sources/bin/modules/dental/records.php?page=$1
+Rewriterule ^historia_(.*)\.html$ sources/bin/modules/dental/record.php?id=$1
+Rewriterule ^examen_general_(.*)\.html$ sources/bin/modules/dental/record.php?id=$1
+Rewriterule ^cirugia_maxilo_facial_(.*)\.html$ sources/bin/modules/cirugia_maxilo_facial/cirugia_maxilo_facial.php?id=$1
+
+
+
+
+Rewriterule ^examen_generaluser.html$ sources/bin/modules/user_examen_general/examen_general_user.php
+Rewriterule ^examen_generallogin.html$ sources/bin/modules/user_examen_general/login.html
+
+
+
+
+Rewriterule ^examen_oral_(.*)\.html$ sources/bin/modules/dental/examen_oral.php?id=$1
+Rewriterule ^placa_bacteriana_(.*)\.html$ sources/bin/modules/dental/placa_bacteriana.php?id=$1
+Rewriterule ^carta_dental_hist_(.*)\.html$ sources/bin/modules/dental/carta_dental_hist.php?id=$1
+Rewriterule ^carta_dental_([a-zA-Z0-9]+)_ok\.html$          sources/bin/modules/dental/carta_dental.php?id=$1&ok=$1
+Rewriterule ^carta_dentalmodal2_([a-zA-Z0-9]+)\.html$   sources/bin/modules/dental/carta_dentalmodal2.php?id=$1
+Rewriterule ^carta_dental_(.*)\.html$ sources/bin/modules/dental/carta_dental.php?id=$1
+Rewriterule ^carta_dentalinf_hist_(.*)\.html$ sources/bin/modules/dental/carta_dentalinf_hist.php?id=$1
+Rewriterule ^carta_dentalinf_(.*)\.html$ sources/bin/modules/dental/carta_dentalinf.php?id=$1
+Rewriterule ^periodontograma_(.*)\.html$ sources/bin/modules/dental/periodontograma.php?id=$1
+Rewriterule ^ortodoncia_(.*)\.html$ sources/bin/modules/dental/ortodoncia.php?id=$1
+Rewriterule ^ortodoncia2_(.*)\.html$ sources/bin/modules/dental/ortodoncia2.php?id=$1
+Rewriterule ^atm_(.*)\.html$ sources/bin/modules/dental/atm.php?id=$1
+Rewriterule ^endodoncia_(.*)\.html$ sources/bin/modules/dental/endodoncia.php?id=$1
+Rewriterule ^diagnostico_(.*)\.html$ sources/bin/modules/dental/diagnostico.php?id=$1
+Rewriterule ^archivos_(.*)\.html$ sources/bin/modules/dental/archivos_subir.php?id=$1
+Rewriterule ^financial\.html$ sources/bin/modules/financial/financial.php?id=$1
+Rewriterule ^stock\.html$ sources/bin/modules/stock/stock.php?id=$1
+
+Rewriterule ^procedimientos\.html$ sources/bin/modules/financial/procedimientos.php?id=$1
+Rewriterule ^procedimiento-borrar_([a-zA-Z0-9]+)_del.html$  sources/bin/modules/financial/procedimientos.php?id=$1&del=1
+Rewriterule ^procedimientos_ok.html$ sources/bin/modules/financial/procedimientos.php?oknew=1
+Rewriterule ^procedimiento_([a-zA-Z0-9]+).html$ sources/bin/modules/financial/procedimiento.php?id=$1
+Rewriterule ^procedimiento_([a-zA-Z0-9]+)_ok.html$ sources/bin/modules/financial/procedimiento.php?id=$1&oknew=1
+Rewriterule ^procedimiento-editar_(.*).html$ sources/bin/modules/financial/editar-procedimiento.php?id=$1
+Rewriterule ^nuevo_procedimiento\.html$ sources/bin/modules/financial/nuevo_procedimiento.php?id=$1
+Rewriterule ^insumos\.html$ sources/bin/modules/financial/insumos.php?id=$1
+Rewriterule ^insumos_ok.html$ sources/bin/modules/financial/insumos.php?oknew=1
+Rewriterule ^insumo_([a-zA-Z0-9]+).html$ sources/bin/modules/financial/editar-insumo.php?id=$1
+Rewriterule ^insumo_([a-zA-Z0-9]+)_ok.html$ sources/bin/modules/financial/insumo.php?id=$1&oknew=1
+Rewriterule ^insumo-editar_(.*).html$ sources/bin/modules/financial/editar-insumo.php?id=$1
+Rewriterule ^nuevo_insumo\.html$ sources/bin/modules/financial/nuevo_insumo.php?id=$1
+Rewriterule ^planesdetratamiento\.html$ sources/bin/modules/financial/planesdetratamiento.php?id=$1
+Rewriterule ^planesdetratamiento_ok.html$ sources/bin/modules/financial/planesdetratamiento.php?oknew=1
+#el viejo Rewriterule ^nuevo_plandetratamiento\.html$ sources/bin/modules/financial/nuevo_plandetratamiento.php?id=$1
+Rewriterule ^configurar_cupos.html$                       sources/bin/modules/configuration/cupos.php
+Rewriterule ^verespecialidades.html$                       sources/bin/modules/configuration/editor_especialidades.php
+Rewriterule ^nuevo_plandetratamiento\.html$               sources/bin/modules/financial/nuevo_plandetratamiento2.php
+Rewriterule ^nuevo_plandetratamiento_([a-zA-Z0-9]+).html$  sources/bin/modules/financial/nuevo_plandetratamiento2.php?id=$1
+Rewriterule ^plandetratamiento_([a-zA-Z0-9]+).html$ sources/bin/modules/financial/plandetratamiento.php?id=$1
+Rewriterule ^plandetratamiento_([a-zA-Z0-9]+)_ok.html$ sources/bin/modules/financial/plandetratamiento.php?id=$1&oknew=1
+#Rewriterule ^plandetratamiento-editar_(.*).html$ sources/bin/modules/financial/editar-plandetratamiento.php?id=$1
+Rewriterule ^plandetratamiento-editar_(.*).html$ sources/bin/modules/financial/edit_plandetratamiento.php?id=$1
+Rewriterule ^financiaciones\.html$ sources/bin/modules/financial/financiaciones.php?id=$1
+Rewriterule ^financiaciones_ok\.html$ sources/bin/modules/financial/financiaciones.php?oknew=ok
+Rewriterule ^financiaciones_([a-zA-Z0-9]+).html$ sources/bin/modules/financial/financiaciones.php?id=$1
+Rewriterule ^financiacion_([a-zA-Z0-9]+).html$ sources/bin/modules/financial/financiacion.php?id=$1
+Rewriterule ^financiacion-editar_([a-zA-Z0-9]+).html$ sources/bin/modules/financial/financiacion-editar.php?id=$1
+Rewriterule ^financiado\.html$ sources/bin/modules/financial/financiado.php?id=$1
+Rewriterule ^financiar\.html$ sources/bin/modules/financial/financiar2.php?id=$1
+Rewriterule ^liquidacion_especialistas\.html$ sources/bin/modules/financial/liquidacion_especialistas.php?id=$1
+Rewriterule ^liquidacion\.html$ sources/bin/modules/financial/liquidacion.php?id=$1
+Rewriterule ^configuracion\.html$ sources/bin/modules/financial/configuracion.php?id=$1
+Rewriterule ^egresos\.html$ sources/bin/modules/financial/egresos.php?id=$1
+Rewriterule ^egreso\.html$ sources/bin/modules/financial/egreso.php?id=$1
+Rewriterule ^nuevo_egreso\.html$ sources/bin/modules/financial/nuevo_egreso.php?id=$1
+
+Rewriterule ^horario_especialista_([a-zA-Z0-9]+).html$ sources/bin/modules/configuration/horario_especialista.php?id=$1
+Rewriterule ^horario_especialista_([a-zA-Z0-9]+)_([a-zA-Z0-9]+).html$ sources/bin/modules/configuration/horario_especialista.php?id=$1&id_delete=$2
+Rewriterule ^horarios_especialista\.html$ sources/bin/modules/configuration/horarios_especialista.php?id=$1
+
+Rewriterule ^ubicaciones\.html$ sources/bin/modules/configuration/ubicaciones.php?id=$1
+Rewriterule ^ubicaciones_ok\.html$ sources/bin/modules/configuration/ubicaciones.php?oknew=ok
+Rewriterule ^ubicaciones_edit\.html$ sources/bin/modules/configuration/ubicaciones.php?okedit=ok
+Rewriterule ^ubicaciones_delete\.html$ sources/bin/modules/configuration/ubicaciones.php?okdelete=ok
+Rewriterule ^ubicaciones_delete_error\.html$ sources/bin/modules/configuration/ubicaciones.php?okdelete=fail
+Rewriterule ^ubicacion_nueva_repetido\.html$ sources/bin/modules/configuration/ubicacion_nueva.php?error=ok
+Rewriterule ^ubicacion_nueva\.html$ sources/bin/modules/configuration/ubicacion_nueva.php
+Rewriterule ^ubicacion_([a-zA-Z0-9]+).html$ sources/bin/modules/configuration/ubicacion_edit.php?id=$1
+Rewriterule ^ubicacion-eliminar_([a-zA-Z0-9]+).html$ sources/bin/modules/configuration/ubicacion_eliminar.php?id=$1
+
+Rewriterule ^especialistas\.html$ sources/bin/modules/configuration/especialistas.php?id=$1
+Rewriterule ^especialistas_new\.html$ sources/bin/modules/configuration/especialistas_new.php
+
+
+
+Rewriterule ^especialista_([a-zA-Z0-9]+).html$ sources/bin/modules/configuration/especialista.php?id=$1
+Rewriterule ^especialista-editar_([a-zA-Z0-9]+).html$ sources/bin/modules/configuration/especialista_edit.php?id=$1
+Rewriterule ^especialista-Eliminar_([a-zA-Z0-9]+).html$ sources/bin/modules/configuration/especialista_delete.php?id=$1
+Rewriterule ^Auxiliares.html$ sources/bin/modules/tbl_config_auxiliares/tbl_config_auxiliares.php
+
+Rewriterule ^HistoriaClinica.html$ sources/bin/modules/informes/HistoriaClinica.php
+
+
+
+Rewriterule ^informeCitas.html$ sources/bin/modules/informes/informeCitas.php
+Rewriterule ^change_pass.html$ sources/bin/modules/user/change_pass.php
