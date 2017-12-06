@@ -5,30 +5,37 @@ function iniciar()
     include_once './visual.php';
     include_once './conexion.php';
     $where = '';
-    if ($_POST['nombre'] != '')
+    if (!isset($_POST['id_estudiante']))
     {
-        $where[] = ' (trim(LOWER(`user`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['nombre'])) . '%\' 
+        if ($_POST['nombre'] != '')
+        {
+            $where[] = ' (trim(LOWER(`user`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['nombre'])) . '%\' 
                  OR  trim(LOWER(`user`.`apellido`)) LIKE \'%' . trim(strtolower($_POST['nombre'])) . '%\') ';
+        }
+        if ($_POST['proyecto'] != '')
+        {
+            $where[] = ' trim(LOWER(`anteproyecto`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['proyecto'])) . '%\' ';
+        }
+        if ($_POST['idmodalidad'] != '-1')
+        {
+            $where[] = ' `anteproyecto`.`idmodalidad` = ' . $_POST['idmodalidad'] . ' ';
+        }
+        if ($_POST['activo'] != '-1')
+        {
+            $where[] = ' `anteproyecto`.`estado` = ' . $_POST['activo'] . ' ';
+        }
+        if ($_POST['inicio'] != '')
+        {
+            $where[] = ' date(`anteproyecto`.`date_create`)>= date("' . $_POST['inicio'] . '") ';
+        }
+        if ($_POST['fin'] != '')
+        {
+            $where[] = ' date(`anteproyecto`.`date_create`)<= date("' . $_POST['fin'] . '") ';
+        }
     }
-    if ($_POST['proyecto'] != '')
+    else
     {
-        $where[] = ' trim(LOWER(`anteproyecto`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['proyecto'])) . '%\' ';
-    }
-    if ($_POST['idmodalidad'] != '-1')
-    {
-        $where[] = ' `anteproyecto`.`idmodalidad` = ' . $_POST['idmodalidad'] . ' ';
-    }
-    if ($_POST['activo'] != '-1')
-    {
-        $where[] = ' `anteproyecto`.`estado` = ' . $_POST['activo'] . ' ';
-    }
-    if ($_POST['inicio'] != '')
-    {
-        $where[] = ' date(`anteproyecto`.`date_create`)>= date("' . $_POST['inicio'] . '") ';
-    }
-    if ($_POST['fin'] != '')
-    {
-        $where[] = ' date(`anteproyecto`.`date_create`)<= date("' . $_POST['fin'] . '") ';
+        $where[] = ' `anteproyecto`.`id` = ' . $_POST['id_estudiante'] . ' ';
     }
     if ($where != '')
     {
@@ -47,7 +54,7 @@ FROM
   INNER JOIN `modalidad` ON (`anteproyecto`.`idmodalidad` = `modalidad`.`idmodalidad`)
   {$where}
 ORDER BY
-  1 DESC";
+`anteproyecto`.`estado`, 1 DESC";
     $data = conexion::records($sql);
     foreach ($data as $key => $temp)
     {
@@ -56,14 +63,20 @@ ORDER BY
                   Opciones
                   <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
-                  <li><a href="index.php?r=anteproyecto%2Fdownload&amp;id=' . $temp['idanteproyecto'] . '" title="Descargar" data-pjax="0"><img src="image/descarga.png" width="15" alt=""> Descargar</a></li>
+                <ul class="dropdown-menu">';
+        if (!isset($_POST['id_estudiante']))
+        {
+            '<li><a href="index.php?r=anteproyecto%2Fdownload&amp;id=' . $temp['idanteproyecto'] . '" title="Descargar" data-pjax="0"><img src="image/descarga.png" width="15" alt=""> Descargar</a></li>
                   ';
+        }
         if ($temp['estado'] == '0')
         {
             $temp['estado'] = 'NO';
-            $button .= '<li><a href="index.php?r=anteproyecto%2Fpublic&id=' . $temp['idanteproyecto'] . '" title="Publicar" aria-label="Publicar" data-pjax="0" data-confirm="¿Esta seguro que desea publicar este proyecto?" data-method="post"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>
+            if (!isset($_POST['id_estudiante']))
+            {
+                $button .= '<li><a href="index.php?r=anteproyecto%2Fpublic&id=' . $temp['idanteproyecto'] . '" title="Publicar" aria-label="Publicar" data-pjax="0" data-confirm="¿Esta seguro que desea publicar este proyecto?" data-method="post"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>
                   ';
+            }
         }
         else
         {
@@ -79,8 +92,9 @@ ORDER BY
     $html        = '<table id="table_anteproyecto" class="table table-striped table-bordered">' . "\n";
     $html .= '  <thead>' . "\n";
     $html .= '  <tr>' . "\n";
-    foreach ($encabezados as $temp)
+    foreach ($encabezados as $key => $temp)
     {
+
         $html.='        <th>' . $temp . '</th>' . "\n";
     }
     $html.='    </tr>' . "\n";

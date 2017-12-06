@@ -10,31 +10,39 @@ use yii\widgets\DetailView;
 $this->params['breadcrumbs'][] = ['label' => 'Anteproyectos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="anteproyecto-view">
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="anteproyecto-view">
+            <h1><?= Html::encode($this->title) ?></h1>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            <?=
+            DetailView::widget([
+                'model'      => $model,
+                'attributes' => [
+                    'nombre',
+                    'descripcion',
+                    'objetivos',
+                    'planteamiento_problema',
+                    'justificacion',
+                    //'archivo_anteproyecto',
+                    'idmodalidad0.nombre',
+                //'id',
+                ],
+            ])
+            ?>
 
-  <!--  <p>
-        <?= Html::a('Update', ['update', 'id' => $model->idanteproyecto], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->idanteproyecto], [
+        </div>
+    </div>
+    <div class="panel-footer">
+        <?= Html::a('Actualizar', ['update', 'id' => $model->idanteproyecto], ['class' => 'btn btn-primary']) ?>
+        <?=
+        Html::a('Borrar', ['delete', 'id' => $model->idanteproyecto], [
             'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+            'data'  => [
+                'confirm' => '¿En verdad desea borrar este anteproyecto?',
+                'method'  => 'post',
             ],
-        ]) ?>
-    </p> -->
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            //'idanteproyecto',
-            'nombre',
-            'descripcion',
-            //'archivo_anteproyecto',
-            'idmodalidad0.nombre',
-            //'id',
-        ],
-    ]) ?>
-
+        ])
+        ?>
+    </div>
 </div>

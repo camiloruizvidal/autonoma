@@ -14,7 +14,7 @@ use common\models\User;
  * @property string $archivo_anteproyecto
  * @property integer $idmodalidad
  * @property integer $id
-  * @property integer $estado
+ * @property integer $estado
  *
  * @property Modalidad $idmodalidad0
  * @property User $id0
@@ -23,9 +23,11 @@ use common\models\User;
  */
 class Anteproyecto extends \yii\db\ActiveRecord
 {
+
     public $file;
     public $Modalidad;
     public $Estudiante;
+
     /**
      * @inheritdoc
      */
@@ -40,11 +42,12 @@ class Anteproyecto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'archivo_anteproyecto', 'idmodalidad', 'id', 'date_create'], 'required', 'message' => 'Campo Requerido'],
+            [['nombre', 'archivo_anteproyecto', 'idmodalidad', 'id', 'date_create', 'objetivos', 'planteamiento_problema', 'justificacion'], 'required', 'message' => 'Campo Requerido'],
             [['idmodalidad', 'id', 'estado'], 'integer'],
             [['date_create'], 'safe'],
             [['file'], 'file', 'extensions' => 'doc, txt, docx', 'wrongExtension' => 'El archivo {file} no contiene una extensión permitida {extensions}'],
             [['nombre', 'descripcion', 'archivo_anteproyecto'], 'string', 'max' => 45],
+            [['objetivos', 'planteamiento_problema', 'justificacion'], 'string', 'max' => 450000],
             [['idmodalidad'], 'exist', 'skipOnError' => true, 'targetClass' => Modalidad::className(), 'targetAttribute' => ['idmodalidad' => 'idmodalidad']],
             [['id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id' => 'id']],
         ];
@@ -56,14 +59,17 @@ class Anteproyecto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idanteproyecto' => 'Idanteproyecto',
-            'nombre' => 'Titulo',
-            'descripcion' => 'Descripcion',
-            'archivo_anteproyecto' => 'Archivo Anteproyecto',
-            'idmodalidad' => 'Modalidad',
-            'id' => 'Estudiante',
-            'file' => 'Archivo',
-            'date_create' => 'Fecha de Creacion',
+            'objetivos'              => 'Objetivos',
+            'planteamiento_problema' => 'Planteamiento del problema',
+            'justificacion'          => 'Justificación',
+            'idanteproyecto'         => 'Idanteproyecto',
+            'nombre'                 => 'Titulo',
+            'descripcion'            => 'Descripcion',
+            'archivo_anteproyecto'   => 'Archivo Anteproyecto',
+            'idmodalidad'            => 'Modalidad',
+            'id'                     => 'Estudiante',
+            'file'                   => 'Archivo',
+            'date_create'            => 'Fecha de Creacion',
         ];
     }
 
@@ -98,4 +104,5 @@ class Anteproyecto extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Revision::className(), ['idanteproyecto' => 'idanteproyecto']);
     }
+
 }

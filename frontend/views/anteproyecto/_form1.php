@@ -12,24 +12,42 @@ use yii\helpers\ArrayHelper;
 
 <div class="anteproyecto-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <div class="container-fluid">
+        <?php $form = ActiveForm::begin(); ?>
+        <div class="col-md-3">
+            <?= $form->field($model, 'nombre')->textInput() ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'descripcion')->textInput() ?>
+        </div>
+        <div class="col-md-3">
+            <?=
+            $form->field($model, 'idmodalidad')->dropDownList(
+                    ArrayHelper::map(Modalidad::find()->all(), 'idmodalidad', 'nombre'), ['prompt' => 'seleccione una modalidad']
+            )
+            ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'file')->fileInput() ?>
+        </div>
+        <div class="col-md-12">
+            <?= $form->field($model, 'objetivos')->textArea() ?>
+        </div>    
+        <div class="col-md-12">
+            <?= $form->field($model, 'planteamiento_problema')->textArea() ?>
+        </div>    
+        <div class="col-md-12">
+            <?= $form->field($model, 'justificacion')->textArea() ?>
+        </div>    
 
+    </div>
+</div>
 
-    <?= $form->field($model, 'nombre')->textInput(['readonly' => true]) ?>
-
-    <?= $form->field($model, 'descripcion')->textInput(['readonly' => true]) ?>
-
-    <?= $form->field($model, 'file')->fileInput() ?>
-
-    <?= $form->field($model, 'idmodalidad')->dropDownList(
-        ArrayHelper::map(Modalidad::find()->all(), 'idmodalidad', 'nombre'), ['readonly' => true],
-        ['prompt' => 'seleccione una modalidad']
-      ) ?>
-
-
-
+</div>
+</div>
+<div class="panel-footer">
     <div class="form-group">
-        <?= Html::submitButton('Actualizar', ['class' =>  'btn btn-primary']) ?>
+        <?= Html::submitButton('Actualizar', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
