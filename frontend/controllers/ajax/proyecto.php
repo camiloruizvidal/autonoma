@@ -54,6 +54,7 @@ function iniciar()
         `proyecto`.`nombre`,
         `proyecto`.`descripcion`,
         date_format(`proyecto`.`date_create`,'%d-%m-%Y') as fecha,
+        (date(now())-date(`user`.`created_at`)) as dias,
         COALESCE(`jurado`.`nombre`, 'No asignado') AS `ju1`,
         COALESCE(`jurado1`.`nombre`, 'No asignado') AS `ju2`,
         `proyecto`.`estado`,
@@ -89,11 +90,11 @@ ORDER BY
         $button .= '<li><a href="index.php?r=proyecto%2Fview&id=' . $temp['idproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-zoom-in"></span> Detalle</a></li>
                 <li><a href="index.php?r=proyecto%2Fdownload&id=' . $temp['idproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-download"></span> Descargar</a></li>
                 </ul>
-              </div>';        
+              </div>';
         $temp['idproyecto'] = $button;
         $data[$key]         = $temp;
     }
-    $encabezados = array('#', 'Estudiante', 'Titulo', 'Descripción', 'Fecha de creacion', 'Jurado<br/>No 1', 'Jurado<br/>No 2', 'Publicado', 'Opciones');
+    $encabezados = array('#', 'Estudiante', 'Titulo', 'Descripción', 'Fecha de creacion','Dias restantes' ,'Jurado<br/>No 1', 'Jurado<br/>No 2', 'Publicado', 'Opciones');
     $html        = '<table id="table_proyecto" class="table table-striped table-bordered">' . "\n";
     $html .= '  <thead>' . "\n";
     $html .= '  <tr>' . "\n";

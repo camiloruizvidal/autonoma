@@ -26,7 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 echo "<div id='modalContent'></div>";
                 Modal::end();
                 ?>
-                <?= \yii2fullcalendar\yii2fullcalendar::widget([
+                <?=
+                \yii2fullcalendar\yii2fullcalendar::widget([
                     'options' => ['lang' => 'es',],
                     'events'  => $events,]);
                 ?>
