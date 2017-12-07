@@ -10,30 +10,43 @@ use yii\widgets\DetailView;
 $this->params['breadcrumbs'][] = ['label' => 'Revisiones', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="revision-view">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Revision
+    </div>
+    <div class="panel-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <p>
-        <!-- <?= Html::a('Actualizar', ['update', 'id' => $model->idrevision], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'id' => $model->idrevision], [
-            'class' => 'btn btn-danger',
-            'data' => [
-              'confirm' => 'Esta seguro que quiere eliminar este items?',
-                'method' => 'post',
-            ],
-        ]) ?> -->
-    </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            //'idrevision',
-            'descripcion',
-            'correccion',
-            'archivo',
-            'estado',
-            'idanteproyecto0.nombre',
-        ],
-    ]) ?>
+        <div class="revision-view">
 
+            <h1><?= Html::encode($this->title) ?></h1>
+            <p>
+                <!-- <?= Html::a('Actualizar', ['update', 'id' => $model->idrevision], ['class' => 'btn btn-primary']) ?>
+                <?=
+                Html::a('Eliminar', ['delete', 'id' => $model->idrevision], [
+                    'class' => 'btn btn-danger',
+                    'data'  => [
+                        'confirm' => 'Esta seguro que quiere eliminar este items?',
+                        'method'  => 'post',
+                    ],
+                ])
+                ?> -->
+            </p>
+
+            <?=
+            DetailView::widget([
+                'model'      => $model,
+                'attributes' => [
+                    //'idrevision',
+                    'descripcion',
+                    'correccion',
+                    'archivo',
+                    'estado',
+                    'idanteproyecto0.nombre',
+                ],
+            ])
+            ?>
+
+        </div>
+    </div>
 </div>

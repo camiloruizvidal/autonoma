@@ -64,11 +64,8 @@ ORDER BY
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">';
-        if (!isset($_POST['id_estudiante']))
-        {
-            '<li><a href="index.php?r=anteproyecto%2Fdownload&amp;id=' . $temp['idanteproyecto'] . '" title="Descargar" data-pjax="0"><img src="image/descarga.png" width="15" alt=""> Descargar</a></li>
-                  ';
-        }
+
+        $button .= '<li><a href="index.php?r=anteproyecto%2Fdownload&amp;id=' . $temp['idanteproyecto'] . '" title="Descargar" data-pjax="0"><img src="image/descarga.png" width="15" alt=""> Descargar</a></li>';
         if ($temp['estado'] == '0')
         {
             $temp['estado'] = 'NO';
