@@ -10,6 +10,18 @@ $this->params['breadcrumbs'][] = ['label' => 'Anteproyectos', 'url' => ['index']
 $this->params['breadcrumbs'][] = ['label' => $model->idanteproyecto, 'url' => ['view', 'id' => $model->idanteproyecto]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/tinymce.jquery.min.js" type="text/javascript"></script>
+<link href="css/tinyeditor.css" rel="stylesheet" type="text/css"/>
+<script>
+    $(function ()
+    {
+        tinymce.init({
+            selector: "textarea",
+            theme: "modern",
+            height: 500});
+    });
+</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         Actualizando anteproyecto

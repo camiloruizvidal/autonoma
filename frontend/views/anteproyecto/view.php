@@ -10,6 +10,16 @@ use yii\widgets\DetailView;
 $this->params['breadcrumbs'][] = ['label' => 'Anteproyectos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(function ()
+    {
+        $('table tr td').each(function (index, value)
+        {
+            $(value).html($(value).text());
+        });
+    });
+</script>
 <div class="panel panel-primary">
     <div class="panel-heading">Anteproyectos</div>
     <div class="panel-body">
@@ -58,6 +68,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php
         }
         ?>
-<?php echo '<a style="color:#FFF;" href="index.php?r=anteproyecto%2Fdownload&amp;id=' . $_GET['id'] . '" title="Descargar" data-pjax="0"><button class="btn btn-success"><i class="glyphicon glyphicon-floppy-save"></i> Descargar</a></button>'; ?>
+        <?php echo '<a style="color:#FFF;" href="index.php?r=anteproyecto%2Fdownload&amp;id=' . $_GET['id'] . '" title="Descargar" data-pjax="0"><button class="btn btn-success"><i class="glyphicon glyphicon-floppy-save"></i> Descargar</a></button>'; ?>
     </div>
 </div>

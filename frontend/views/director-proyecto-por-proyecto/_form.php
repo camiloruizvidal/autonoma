@@ -12,10 +12,7 @@ use yii\helpers\ArrayHelper;
 ?>
 
 <div class="director-proyecto-por-proyecto-form">
-    <?php $form = ActiveForm::begin();
-    echo '<pre>';
-    var_dump(DirectorProyecto::findAll($condition));
-    exit;?>
+    <?php $form = ActiveForm::begin(); ?>
     <?=
     $form->field($model, 'iddirector_proyecto')->dropDownList(
             ArrayHelper::map(DirectorProyecto::find()->all(), 'iddirector_proyecto', 'nombre'), ['prompt' => 'seleccione el director']
@@ -27,7 +24,7 @@ use yii\helpers\ArrayHelper;
     )
     ?>
     <div class="form-group">
-    <?= Html::submitButton($model->isNewRecord ? 'Asignar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Asignar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary']) ?>
     </div>
-<?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 </div>

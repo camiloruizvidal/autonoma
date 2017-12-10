@@ -66,32 +66,54 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </span>
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <label>Tipo</label>
-                            <div class="input-group">
-                                <select class="form-control" name="idmodalidad" id="idmodalidad">
-                                    <option value="-1">TODOS</option>
-                                    <option value="2">trabajo de Investigacion</option>
-                                    <option value="1">pasantia</option>
-                                </select>
-                                <span class="input-group-btn">
-                                    <button onclick="limpiar('#idmodalidad');" class="btn btn-danger" type="button">x</button>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Publicados</label>
-                            <div class="input-group">
-                                <select class="form-control" name="activo" id="activo">
-                                    <option value="-1">TODOS</option>
-                                    <option value="1">SI</option>
-                                    <option value="0">NO</option>
-                                </select>
-                                <span class="input-group-btn">
-                                    <button onclick="limpiar('#activo');" class="btn btn-danger" type="button">x</button>
-                                </span>
-                            </div>
-                        </div>
+                        <?php
+                        if (Yii::$app->user->can('Comite'))
+                        {
+                            echo '<div class="col-xs-12">
+                                    <input type="hidden" value="1" name="activo" id="activo"/>
+                                    <label>Tipo</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="idmodalidad" id="idmodalidad">
+                                            <option value="-1">TODOS</option>
+                                            <option value="2">trabajo de Investigacion</option>
+                                            <option value="1">pasantia</option>
+                                        </select>
+                                        <span class="input-group-btn">
+                                            <button onclick="limpiar(\'#idmodalidad\');" class="btn btn-danger" type="button">x</button>
+                                        </span>
+                                    </div>
+                                </div>';
+                        }
+                        else
+                        {
+                            echo '<div class="col-xs-6">
+                                    <label>Tipo</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="idmodalidad" id="idmodalidad">
+                                            <option value="-1">TODOS</option>
+                                            <option value="2">trabajo de Investigacion</option>
+                                            <option value="1">pasantia</option>
+                                        </select>
+                                        <span class="input-group-btn">
+                                            <button onclick="limpiar(\'#idmodalidad\');" class="btn btn-danger" type="button">x</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Publicados</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="activo" id="activo">
+                                            <option value="-1">TODOS</option>
+                                            <option value="1">SI</option>
+                                            <option value="0">NO</option>
+                                        </select>
+                                        <span class="input-group-btn">
+                                            <button onclick="limpiar(\'#activo\');" class="btn btn-danger" type="button">x</button>
+                                        </span>
+                                    </div>
+                                </div>';
+                        }
+                        ?>
                         <div class="col-md-6">
                             <label>Fecha inicio</label>
                             <div class="input-group">

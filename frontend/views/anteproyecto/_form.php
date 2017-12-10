@@ -8,8 +8,21 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Anteproyecto */
 /* @var $form yii\widgets\ActiveForm */
-?><div class="panel panel-primary">
-<?php $form = ActiveForm::begin(); ?>
+?>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/tinymce.jquery.min.js" type="text/javascript"></script>
+<link href="css/tinyeditor.css" rel="stylesheet" type="text/css"/>
+<script>
+    $(function ()
+    {
+        tinymce.init({
+        selector: "textarea",
+        theme: "modern",
+        height: 500});
+    });
+</script>
+<div class="panel panel-primary">
+    <?php $form = ActiveForm::begin(); ?>
     <div class="panel-heading">
         Los campos con <span class="required">*</span> son requeridos.
     </div>
