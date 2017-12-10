@@ -18,6 +18,7 @@ use Yii;
  */
 class Revision extends \yii\db\ActiveRecord
 {
+
     public $file;
 
     /**
@@ -37,7 +38,7 @@ class Revision extends \yii\db\ActiveRecord
             [['correccion', 'archivo', 'estado', 'idanteproyecto'], 'required', 'message' => 'Campo Requerido'],
             [['estado'], 'string'],
             [['date_create'], 'safe'],
-            [[ 'file'], 'file'],
+            [['file'], 'file'],
             [['idanteproyecto', 'num_revisiones'], 'integer'],
             [['descripcion', 'correccion', 'archivo'], 'string', 'max' => 200],
             [['idanteproyecto'], 'exist', 'skipOnError' => true, 'targetClass' => Anteproyecto::className(), 'targetAttribute' => ['idanteproyecto' => 'idanteproyecto']],
@@ -50,15 +51,16 @@ class Revision extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idrevision' => 'Idrevision',
-            'descripcion' => 'Descripcion',
-            'correccion' => 'Correccion',
-            'archivo' => 'Archivo',
-            'estado' => 'Estado',
+            'id_comite'      => 'id_comite',
+            'idrevision'     => 'Idrevision',
+            'descripcion'    => 'Descripcion',
+            'correccion'     => 'Correccion',
+            'archivo'        => 'Archivo',
+            'estado'         => 'Estado',
             'num_revisiones' => 'Nº de revisiones',
             'idanteproyecto' => 'Anteproyecto',
-            'date_create' => 'Fecha de Concepto',
-            'file' => 'Archivo',
+            'date_create'    => 'Fecha de Concepto',
+            'file'           => 'Archivo',
         ];
     }
 
@@ -69,4 +71,5 @@ class Revision extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Anteproyecto::className(), ['idanteproyecto' => 'idanteproyecto']);
     }
+
 }

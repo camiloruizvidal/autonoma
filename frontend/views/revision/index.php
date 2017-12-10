@@ -19,23 +19,19 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="panel-body">
         <div class="revision-index">
-            <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
             <?php
-            // se realiza una funcion para hacer un formulario mas bonito
             Modal::begin([
                 'header' => '<h4>Conceptos</h4>',
                 'id'     => 'modal',
                 'size'   => 'modal-lg',
             ]);
             echo "<div id='modalContent'></div>";
-
             Modal::end();
             ?>
             <?php
             if (Yii::$app->user->can('Comite'))
             {
                 ?>
-
                 <p>
                     <?= Html::button('Crear Concepto', ['value' => Url::to('index.php?r=revision/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
 
