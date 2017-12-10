@@ -133,7 +133,7 @@ AppAsset::register($this);
             ?>
 
             <div class="container">
-                <button onclick="history.back()" class="btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button>
+                <button style="margin-bottom: 10px;" onclick="history.back()" class="btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button>
                 <?=
                 Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
