@@ -39,8 +39,9 @@ class Revision extends \yii\db\ActiveRecord
             [['estado'], 'string'],
             [['date_create'], 'safe'],
             [['file'], 'file'],
+            [['correccion'], 'string'],
             [['idanteproyecto', 'num_revisiones'], 'integer'],
-            [['descripcion', 'correccion', 'archivo'], 'string', 'max' => 200],
+            [['descripcion', 'archivo'], 'string', 'max' => 200],
             [['idanteproyecto'], 'exist', 'skipOnError' => true, 'targetClass' => Anteproyecto::className(), 'targetAttribute' => ['idanteproyecto' => 'idanteproyecto']],
         ];
     }

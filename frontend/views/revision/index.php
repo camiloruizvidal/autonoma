@@ -13,6 +13,16 @@ use yii\helpers\Url;
 $this->title                   = 'Concepto';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(function ()
+    {
+        $('table tr td').each(function (index, value)
+        {
+            $(value).html($(value).text());
+        });
+    });
+</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <?= Html::encode($this->title) ?>

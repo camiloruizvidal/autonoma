@@ -10,6 +10,16 @@ use yii\widgets\DetailView;
 $this->params['breadcrumbs'][] = ['label' => 'Revisiones', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(function ()
+    {
+        $('table tr td').each(function (index, value)
+        {
+            $(value).html($(value).text());
+        });
+    });
+</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         Revision
@@ -40,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'idrevision',
                     'descripcion',
                     'correccion',
-                    'archivo',
+                    //'archivo',
                     'estado',
                     'idanteproyecto0.nombre',
                 ],
@@ -48,5 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
 
         </div>
+    </div>
+    <div class="panel-footer">
+        <a href="#"><button class="btn btn-success">Descargar</button></a>
     </div>
 </div>
