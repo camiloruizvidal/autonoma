@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
     else
     {
         ?>
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     Buscar <?= Html::encode($this->title) ?>
@@ -146,7 +146,7 @@ $this->params['breadcrumbs'][] = $this->title;
     }
     else
     {
-        echo '<div class="col-md-8">';
+        echo '<div class="col-md-12">';
     }
     ?>
     <div class="panel panel-primary">

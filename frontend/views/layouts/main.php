@@ -19,7 +19,7 @@ AppAsset::register($this);
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
-        <title><?= Html::encode($this->title) ?></title>
+        <title>Sistema de gestion</title>
         <?php $this->head() ?>
         <script src="js/jquery/jquery.js" type="text/javascript"></script>
         <script src="js/jquery.dataTables.min.js" type="text/javascript" charset="utf8" ></script>
@@ -29,7 +29,8 @@ AppAsset::register($this);
         <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
     </head>
     <body>
-        <?php $this->beginBody() ?>
+        <style>body{margin-top: 70px;}</style>
+        <?php $this->beginBody() ?>       
 
         <div class="wrap">
             <?php
@@ -131,77 +132,126 @@ AppAsset::register($this);
             ]);
             NavBar::end();
             ?>
-
-            <div class="container">
-                <button style="margin-bottom: 10px;" onclick="history.back()" class="btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button>
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <button id="btn_regresar" style="margin-bottom: 10px;" onclick="history.back()" class="btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar</button>
+                </div>
                 <?=
                 Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ])
                 ?>
                 <?= Alert::widget() ?>
-                <?= $content ?>
-            </div>
-        </div>
-
-        <script>
-            $(function ()
-            {
-                ocultar_sta();
-            });
-            function ocultar_sta()
-            {
-                ocultar = <?php
-                $id = Yii::$app->user->id;
-                if (!is_null($id))
+                <?php
+                if (Yii::$app->user->can('Secretario'))
                 {
-                    $script       = "SELECT
+                    ?>
+                    <div class="col-md-2">
+                        <script>
+                            function ver()
+                            {
+                                $.ajax({
+                                    url: '../controllers/ajax/toggle_people.php',
+                                    success: function (data)
+                                    {
+                                        $('#data_estudents').html(data);
+                                    }
+                                });
+                            }
+                            $(function ()
+                            {
+                                ver();
+                            });
+                        </script>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                Estudiantes
+                            </div>
+                            <div class="panel-body">
+                                <div id="notification-toggle-2">
+                                    <div id="data_estudents">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+                <?php
+                if (Yii::$app->user->can('Secretario'))
+                {
+                    ?>
+                    <div class="col-md-10">
+                        <?= $content ?>
+                        <?php
+                    }
+                    else
+                    {
+                        ?>
+                        <div class="col-md-12">
+                            <?= $content ?>
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+                </div>
+            </div>
+            <script>
+                $(function ()
+                {
+                    ocultar_sta();
+                });
+                function ocultar_sta()
+                {
+                    ocultar = <?php
+                        $id = Yii::$app->user->id;
+                        if (!is_null($id))
+                        {
+                            $script       = "SELECT
           `revision`.`estado`
         FROM
           `revision`
           INNER JOIN `anteproyecto` ON (`revision`.`idanteproyecto` = `anteproyecto`.`idanteproyecto`)
           WHERE `anteproyecto`.`id`=" . $id;
-                    //echo $script;exit;
-                    $sql          = Yii::$app->db->createCommand($script);
-                    $dataProvider = new ArrayDataProvider([
-                        'allModels' => $sql->queryAll(),
-                    ]);
-                    for ($i = 0; $i < count($dataProvider->allModels); $i++)
+                            //echo $script;exit;
+                            $sql          = Yii::$app->db->createCommand($script);
+                            $dataProvider = new ArrayDataProvider([
+                                'allModels' => $sql->queryAll(),
+                            ]);
+                            for ($i = 0; $i < count($dataProvider->allModels); $i++)
+                            {
+                                $estado = $dataProvider->allModels[$i]['estado'] == 'Aceptado';
+                            }
+                            if (count($dataProvider->allModels) > 0 && @($estado))
+                            {
+                                echo 'false'; //no queremos ocultarlo
+                            }
+                            else
+                            {
+                                echo 'true';
+                            }
+                        }
+                        else
+                        {
+                            echo 'true';
+                        }
+                        ?>;
+                    if (ocultar)
                     {
-                        $estado = $dataProvider->allModels[$i]['estado'] == 'Aceptado';
-                    }
+                        $('.estado_proyecto').hide();
 
-                    // var_dump($dataProvider->allModels[$i]['estado']);
-                    //var_dump(count($dataProvider->allModels));exit;
-                    if (count($dataProvider->allModels) > 0 && @($estado))
-                    {
-                        echo 'false'; //no queremos ocultarlo
                     }
-                    else
-                    {
-                        echo 'true';
+                    else {
+                        $('.estado_proyecto').show();
+                        //$('.estado_anteproyecto').hide();
+
                     }
                 }
-                else
-                {
-                    echo 'true';
-                }
-                ?>;
-                if (ocultar)
-                {
-                    $('.estado_proyecto').hide();
-
-                }
-                else {
-                    $('.estado_proyecto').show();
-                    //$('.estado_anteproyecto').hide();
-
-                }
-            }
-        </script>
-
-
-        <?php $this->endBody() ?>
+            </script>
+            <?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>
