@@ -21,6 +21,13 @@ function iniciar()
         }
         $where[] = '(' . implode(' OR ', $where2) . ')';
     }
+    if (isset($_POST['id_jurado']))
+    {
+        $_POST['id_jurado'] = trim($_POST['id_jurado']);
+        $where[]            = ' `jurado1`.`id_usuario_jurado` =' . $_POST['id_jurado'] . '
+            OR 
+            `jurado`.`id_usuario_jurado` =' . $_POST['id_jurado'] . '';
+    }
     if ($_POST['jurado'] != '')
     {
         $_POST['jurado'] = trim($_POST['jurado']);
@@ -94,7 +101,7 @@ ORDER BY
         $temp['idproyecto'] = $button;
         $data[$key]         = $temp;
     }
-    $encabezados = array('#', 'Estudiante', 'Titulo', 'Descripción', 'Fecha de creacion','Dias restantes' ,'Jurado<br/>No 1', 'Jurado<br/>No 2', 'Publicado', 'Opciones');
+    $encabezados = array('#', 'Estudiante', 'Titulo', 'Descripción', 'Fecha de creacion', 'Dias restantes', 'Jurado<br/>No 1', 'Jurado<br/>No 2', 'Publicado', 'Opciones');
     $html        = '<table id="table_proyecto" class="table table-striped table-bordered">' . "\n";
     $html .= '  <thead>' . "\n";
     $html .= '  <tr>' . "\n";

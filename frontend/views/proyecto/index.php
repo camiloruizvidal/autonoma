@@ -50,12 +50,29 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="col-md-4">
                     <label>Jurado</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="jurado" id="jurado" placeholder="nombre">
-                        <span class="input-group-btn">
-                            <button onclick="limpiar('#jurado');" class="btn btn-danger" type="button">x</button>
-                        </span>
-                    </div>
+                    <?php
+                    if (Yii::$app->user->can('Jurado'))
+                    {
+                        ?>
+                        <input type="hidden" class="form-control" name="jurado" id="jurado" value="">
+                        <label>Jurado</label><br/>
+                        <label>Gabriel Osorio<i> Esta quemado</i></label>
+                        <input type="hidden" class="form-control" name="id_jurado" id="id_jurado" value="<?= Yii::$app->user->id; ?>">
+                        <?php
+                    }
+                    else
+                    {
+                        ?>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="jurado" id="jurado" placeholder="">
+                            <span class="input-group-btn">
+                                <button onclick="limpiar('#jurado');" class="btn btn-danger" type="button">x</button>
+                            </span>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
                 </div>
                 <div class="col-md-4">
                     <label>Publicados</label>
@@ -107,7 +124,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::button('Crear Proyecto', ['value' => Url::to('index.php?r=proyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
 
                 </p>
-            <?php } ?>
+                <?php
+            }
+            ?>
             <div id="data"></div>
         </div>
     </div>

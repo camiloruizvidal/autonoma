@@ -13,6 +13,16 @@ use yii\widgets\Pjax;
 $this->title                   = 'Jurado por Proyecto';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<script>
+    $(function ()
+    {
+        /*        console.log($('th .sorting a'));
+         $.each($('th .sorting'), function (index, value)
+         {
+         console.log(value);
+         });*/
+    });
+</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <?= Html::encode($this->title) ?>

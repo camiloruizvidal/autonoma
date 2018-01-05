@@ -146,7 +146,7 @@ AppAsset::register($this);
                 if (Yii::$app->user->can('Secretario'))
                 {
                     ?>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <script>
                             function ver()
                             {
@@ -183,7 +183,7 @@ AppAsset::register($this);
                 if (Yii::$app->user->can('Secretario'))
                 {
                     ?>
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <?= $content ?>
                         <?php
                     }
