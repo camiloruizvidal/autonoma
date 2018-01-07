@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     type: 'POST',
                                     success: function (e)
                                     {
-
+                                        location.reload();
                                     }
                                 });
                             });
