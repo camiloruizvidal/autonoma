@@ -22,15 +22,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="container-fluid">
                             <div class="col-md-12">
                                 <label>Fecha</label>
-                                <input id="fecha_evento" name="fecha_evento" class="form form-control"/>
+                                <input id="fecha_evento" name="fecha_evento" class="form form-control" required="true" />
                             </div>
                             <div class="col-md-12">
                                 <label>Titulo</label>
-                                <input id="titulo" name="titulo" class="form form-control"/>
+                                <input id="titulo" name="titulo" class="form form-control" required="true" />
                             </div>
                             <div class="col-md-12">
                                 <label>Descripcion</label>
-                                <textarea rows="8" id="descripcion" name="descripcion" class="form form-control"></textarea>
+                                <textarea rows="8" id="descripcion" name="descripcion" class="form form-control" required="true"></textarea>
                             </div>
                         </div>
                     </div>
@@ -47,16 +47,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     <script>
                         $(function ()
                         {
+                            $('#fecha_evento').datepicker({dateFormat: "yy-mm-dd",minDate:'+0'});
                             $('#new_evento').submit(function (e)
                             {
                                 e.preventDefault();
                                 $.ajax({
-                                    url: '',
+                                    url: '../controllers/ajax/evento.php',
                                     data: $('#new_evento').serialize(),
                                     type: 'POST',
                                     success: function (e)
                                     {
-                                        
+
                                     }
                                 });
                             });
