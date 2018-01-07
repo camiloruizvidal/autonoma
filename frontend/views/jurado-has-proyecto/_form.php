@@ -5,7 +5,6 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Jurado;
 use backend\models\Proyecto;
-
 /* @var $this yii\web\View */
 /* @var $model backend\models\JuradoHasProyecto */
 /* @var $form yii\widgets\ActiveForm */
@@ -15,7 +14,6 @@ use backend\models\Proyecto;
     <div class="container-fluid">
         <?php
         $form = ActiveForm::begin();
-
         $connection = Yii::$app->getDb();
         $command    = $connection->createCommand("SELECT 
   `proyecto`.`idproyecto`,

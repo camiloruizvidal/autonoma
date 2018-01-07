@@ -211,11 +211,11 @@ AppAsset::register($this);
                         if (!is_null($id))
                         {
                             $script       = "SELECT
-          `revision`.`estado`
-        FROM
-          `revision`
-          INNER JOIN `anteproyecto` ON (`revision`.`idanteproyecto` = `anteproyecto`.`idanteproyecto`)
-          WHERE `anteproyecto`.`id`=" . $id;
+                                `revision`.`estado`
+                              FROM
+                                `revision`
+                                INNER JOIN `anteproyecto` ON (`revision`.`idanteproyecto` = `anteproyecto`.`idanteproyecto`)
+                                WHERE `anteproyecto`.`id`=" . $id;
                             //echo $script;exit;
                             $sql          = Yii::$app->db->createCommand($script);
                             $dataProvider = new ArrayDataProvider([
