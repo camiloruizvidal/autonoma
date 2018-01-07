@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="evento-index">
     <div class="container-fluid">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">Nuevo evento</div>
                 <form id="new_evento">
@@ -40,14 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 </form>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="panel panel-primary">
                 <div class="panel-heading"><?= Html::encode($this->title) ?></div>
                 <div class="panel-body">
                     <script>
                         $(function ()
                         {
-                            $('#fecha_evento').datepicker({dateFormat: "yy-mm-dd",minDate:'+0'});
+                            $('#mytable').DataTable(languaje());
+                            $('#fecha_evento').datepicker({dateFormat: "yy-mm-dd", minDate: '+0'});
                             $('#new_evento').submit(function (e)
                             {
                                 e.preventDefault();
@@ -65,18 +66,33 @@ $this->params['breadcrumbs'][] = $this->title;
                     </script>
 
                     <?php
-                    Modal::begin([
-                        'header' => '<h4>Cronograma</h4>',
-                        'id'     => 'modal',
-                        'size'   => 'modal-lg',
-                    ]);
-                    echo "<div id='modalContent'></div>";
-                    Modal::end();
-                    ?>
-                    <?=
-                    \yii2fullcalendar\yii2fullcalendar::widget([
-                        'options' => ['lang' => 'es',],
-                        'events'  => $events,]);
+                    $connection                    = Yii::$app->getDb();
+                    $sql                           = 'SELECT 
+                        `evento`.`fecha`,
+                        `evento`.`titulo`,
+                        `evento`.`descripcion`
+                      FROM
+                        `evento`
+                      ORDER BY
+                        date(`evento`.`fecha`) DESC';
+                    $command                       = $connection->createCommand($sql);
+                    $result                        = $command->queryAll();
+                    $html                          = '';
+                    $html.='<table class="table table-hover" border="1" id="mytable">';
+                    $html.='<thead><tr><th>Fecha</th><th>Titulo</th><th>Descripcion</th></tr></thead>';
+                    $html.='<tbody>';
+                    foreach ($result as $temp)
+                    {
+                        $html.='<tr>';
+                        foreach ($temp as $temp2)
+                        {
+                            $html.='<td>'.$temp2.'</td>';
+                        }
+                        $html.='</tr>';
+                    }
+                    $html.='</tbody>';
+                    $html.='</table>';
+                    echo $html;
                     ?>
                 </div>
             </div>
