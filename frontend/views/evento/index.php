@@ -17,6 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel panel-primary">
             <div class="panel-heading"><?= Html::encode($this->title) ?></div>
             <div class="panel-body">
+                <script>
+                    $(function ()
+                    {
+
+                    })
+                </script>
                 <?php
                 Modal::begin([
                     'header' => '<h4>Cronograma</h4>',
