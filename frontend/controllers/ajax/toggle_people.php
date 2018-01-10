@@ -52,13 +52,15 @@ foreach ($data as $temp)
 {
 
     $button = '';
+  $dias=$temp['dias'];
     if ($temp['dias'] <= 0)
     {
         $button = '<button  data-toggle="modal" data-target="#myModal" class="btn btn-primary" onclick="editar(' . $temp['id'] . ')"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Prorroga</button>';
+    $dias='Venció hace ' . (-1 * $dias) . ' dias';
     }
     $html.='<tr class="' . class_color($temp['dias']) . '">';
     $html.='<td>' . $temp['user'] . '</td>';
-    $html.='<td>' . $temp['dias'] . '</td>';
+    $html.='<td>' . $dias . '</td>';
     $html.='<td>' . $button . '</td>';
     $html.='</tr>';
 }

@@ -115,13 +115,20 @@ class DirectorProyectoPorProyectoController extends Controller
                 $search = Html::encode($form->fechaini);
                 $search1 = Html::encode($form->fechafin);
                 $search2 = Html::encode($form->q);
-                // var_dump($search1);
-                // exit();
-                $query = "SELECT count(*) as cantida_de_proyecto, proyecto.nombre AS Proyecto, director_proyecto.nombre AS Director, director_proyecto_por_proyecto.fecha AS Fecha
-                FROM director_proyecto_por_proyecto
-                INNER JOIN proyecto ON  proyecto.idproyecto = director_proyecto_por_proyecto.idproyecto
-                INNER JOIN director_proyecto ON  director_proyecto.iddirector_proyecto = director_proyecto_por_proyecto.iddirector_proyecto
-                WHERE director_proyecto.iddirector_proyecto LIKE '%$search2%' AND  fecha between   '$search' AND  '$search1'";
+                $query = "SELECT 
+                      `proyecto`.`nombre` AS `Proyecto`,
+                      `director_proyecto`.`nombre` AS `Director`,
+                       date(`director_proyecto_por_proyecto`.`fecha`) as Fecha
+                    FROM 
+                        director_proyecto_por_proyecto
+                        INNER JOIN proyecto ON  proyecto.idproyecto = director_proyecto_por_proyecto.idproyecto
+                        INNER JOIN director_proyecto ON  director_proyecto.iddirector_proyecto = director_proyecto_por_proyecto.iddirector_proyecto
+                    WHERE
+                        director_proyecto.iddirector_proyecto LIKE '%$search2%' 
+                    AND
+                        fecha between   '$search' AND  '$search1'
+                    ORDER BY 
+                        `director_proyecto_por_proyecto`.`fecha` DESC";
                 //$query .= "Nombre LIKE '%$search%' OR Apellido LIKE '%$search%'";
                 $model = $table->findBySql($query)->all();
                 $mPDF1 = new \Mpdf\Mpdf(); //Esto lo pueden configurar como quieren, para eso deben de entrar en la web de MPDF para ver todo lo que permite.
