@@ -52,11 +52,11 @@ foreach ($data as $temp)
 {
 
     $button = '';
-  $dias=$temp['dias'];
+    $dias   = $temp['dias'];
     if ($temp['dias'] <= 0)
     {
-        $button = '<button  data-toggle="modal" data-target="#myModal" class="btn btn-primary" onclick="editar(' . $temp['id'] . ')"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Prorroga</button>';
-    $dias='Venció hace ' . (-1 * $dias) . ' dias';
+        $button = '<button  data-toggle="modal" data-target="#myModal" class="btn btn-primary" onclick="editar(' . $temp['id'] . ',\'' . $temp['user'] . '\')"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Prorroga</button>';
+        $dias   = 'Venció hace ' . (-1 * $dias) . ' dias';
     }
     $html.='<tr class="' . class_color($temp['dias']) . '">';
     $html.='<td>' . $temp['user'] . '</td>';
@@ -76,13 +76,33 @@ $html .= '<!-- Modal -->
         <h4 class="modal-title" id="myModalLabel">Agregar Prorroga</h4>
       </div>
       <div class="modal-body">
-        El estudiante <h1>Nombre pendiente</h1> se le va a agregar 6 meses de prorroga.
+        <input type="hidden" id="id_prorroga_value" value=""/>
+        El estudiante <h1 id="nombre_usuario">Nombre pendiente</h1> se le va a agregar 6 meses de prorroga.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-        <button type="button" class="btn btn-danger">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="guardar();">Aceptar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>
-</div>';
+</div>
+<script>
+function guardar()
+{
+    var id = $("#id_prorroga_value").val()
+    $.ajax({
+        url: "../controllers/ajax/toggle_people.php",
+        success: function (data)
+        {
+            $("#data_estudents").html(data);
+        }
+    });                        
+}
+function editar(id,name)
+{
+    $("#id_prorroga_value").val(id);
+    $("#nombre_usuario").html(name);
+}
+</script>
+';
 echo $html;
