@@ -13,6 +13,7 @@ use Yii;
  * @property string $archivo
  * @property string $estado
  * @property integer $idproyecto
+ * @property string $secretario_aprobado
  *
  * @property Proyecto $idproyecto0
  */
@@ -35,6 +36,7 @@ class Revisonp extends \yii\db\ActiveRecord
         return [
             [['correcion', 'archivo', 'estado', 'idproyecto'], 'required', 'message' => 'Campo Requerido'],
             [['estado'], 'string'],
+            [['secretario_aprobado'], 'string'],
             [[ 'file1'], 'file'],
             [['idproyecto', 'num_revisiones'], 'integer'],
             [['descripcion', 'correccion', 'archivo'], 'string', 'max' => 45],
@@ -55,6 +57,7 @@ class Revisonp extends \yii\db\ActiveRecord
             'estado' => 'Estado',
             'idproyecto' => 'Proyecto',
             'file1' => 'Archivo',
+            'secretario_aprobado' => 'secretario aprobado',
             'num_revisiones' => 'Nº revisiones'
         ];
     }

@@ -7,25 +7,33 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\JuradoHasProyectoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ver Jurado ';
+$this->title                   = 'Ver Jurado ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="jurado-has-proyecto-index">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <?= Html::encode($this->title) ?>
+    </div>
+    <div class="panel-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+        <div class="jurado-has-proyecto-index">
+            <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'Jurado',
-            'Jurado2',
-            'Proyecto',
-
-            //['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+            <?=
+            GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel'  => $searchModel,
+                'columns'      => [
+                    ['class' => 'yii\grid\SerialColumn'],
+                    'Jurado',
+                    'Jurado2',
+                    'Proyecto',
+                //['class' => 'yii\grid\ActionColumn'],
+                ],
+            ]);
+            ?>
+        </div>
+    </div>
+    <div class="panel-footer">
+    </div>
 </div>

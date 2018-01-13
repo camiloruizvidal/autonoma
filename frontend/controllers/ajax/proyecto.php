@@ -28,6 +28,11 @@ function iniciar()
             OR 
             `jurado`.`id_usuario_jurado` =' . $_POST['id_jurado'] . '';
     }
+    if (isset($_POST['id_estudiante']))
+    {
+        $_POST['id_estudiante'] = trim($_POST['id_estudiante']);
+        $where[]                = ' `user`.`id` =' . $_POST['id_estudiante'] . ' ';
+    }
     if ($_POST['jurado'] != '')
     {
         $_POST['jurado'] = trim($_POST['jurado']);
@@ -54,27 +59,28 @@ function iniciar()
     }
     if ($where != '')
     {
-        $where = ' where ' . "\n" . implode("\n" . ' and ' . "\n", $where);
+        $where = ' WHERE ' . "\n" . implode("\n" . ' and ' . "\n", $where);
     }
     $sql  = "SELECT 
         concat_ws(' ', `user`.`nombre`, `user`.`apellido`) AS `estudiante`,
         `proyecto`.`nombre`,
         `proyecto`.`descripcion`,
         date_format(`proyecto`.`date_create`,'%d-%m-%Y') as fecha,
-        (date(now())-date(`user`.`created_at`)) as dias,
+        DATEDIFF(date(`user`.`fecha_fin`),date(now())) as dias,
         COALESCE(`jurado`.`nombre`, 'No asignado') AS `ju1`,
         COALESCE(`jurado1`.`nombre`, 'No asignado') AS `ju2`,
         `proyecto`.`estado`,
         `proyecto`.`idproyecto` 
-FROM
-  `proyecto`
-  INNER JOIN `user` ON (`proyecto`.`id` = `user`.`id`)
-  LEFT OUTER JOIN `jurado_has_proyecto` ON (`proyecto`.`idproyecto` = `jurado_has_proyecto`.`idproyecto`)
-  LEFT OUTER JOIN `jurado` ON (`jurado_has_proyecto`.`idjurado` = `jurado`.`idjurado`)
-  LEFT OUTER JOIN `jurado` `jurado1` ON (`jurado_has_proyecto`.`idjurado2` = `jurado1`.`idjurado`)
-  {$where}
-ORDER BY
-  1 DESC";
+        FROM
+          `proyecto`
+          INNER JOIN `user` ON (`proyecto`.`id` = `user`.`id`)
+          LEFT OUTER JOIN `jurado_has_proyecto` ON (`proyecto`.`idproyecto` = `jurado_has_proyecto`.`idproyecto`)
+          LEFT OUTER JOIN `jurado` ON (`jurado_has_proyecto`.`idjurado` = `jurado`.`idjurado`)
+          LEFT OUTER JOIN `jurado` `jurado1` ON (`jurado_has_proyecto`.`idjurado2` = `jurado1`.`idjurado`)
+          {$where}
+        ORDER BY
+          1 DESC";
+  //exit('<pre>'.$sql.'</pre>');
     $data = conexion::records($sql);
     foreach ($data as $key => $temp)
     {
@@ -92,7 +98,10 @@ ORDER BY
         else
         {
             $temp['estado'] = 'NO';
-            $button .= '<li><a href="index.php?r=proyecto%2Fview&id=' . $temp['idproyecto'] . '" title="Publicar" aria-label="Publicar" data-pjax="0" data-confirm="¿Esta seguro que desea publicar este proyecto?" data-method="post"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>';
+            if (!isset($_POST['id_estudiante']))
+            {
+                $button .= '<li><a href="index.php?r=proyecto%2Fview&id=' . $temp['idproyecto'] . '" title="Publicar" aria-label="Publicar" data-pjax="0" data-confirm="¿Esta seguro que desea publicar este proyecto?" data-method="post"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>';
+            }
         }
         $button .= '<li><a href="index.php?r=proyecto%2Fview&id=' . $temp['idproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-zoom-in"></span> Detalle</a></li>
                 <li><a href="index.php?r=proyecto%2Fdownload&id=' . $temp['idproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-download"></span> Descargar</a></li>
