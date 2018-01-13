@@ -57,7 +57,7 @@ class Revisonp extends \yii\db\ActiveRecord
             'estado' => 'Estado',
             'idproyecto' => 'Proyecto',
             'file1' => 'Archivo',
-            'secretario_aprobado' => 'secretario aprobado',
+            'secretario_aprobado' => 'Publicar',
             'num_revisiones' => 'Nº revisiones'
         ];
     }

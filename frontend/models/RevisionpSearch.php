@@ -42,11 +42,10 @@ class RevisionpSearch extends Revisonp
      */
     public function search($params)
     {
-        $query = Revisonp::find()->where();
+        $query = Revisonp::find();
         if (Yii::$app->user->can('Estudiante'))
         {
-            $query = Revisonp::find()->where(['secretario_aprobado' => 'si']);   
-            $query = Revisonp::find()->joinWith(['idproyecto0' => function ($query)
+            $query = Revisonp::find()->where(['secretario_aprobado' => 'si'])->joinWith(['idproyecto0' => function ($query)
                         {
                             $query->andWhere(['id' => Yii::$app->user->id]);
                         },])->with(['idproyecto0']);

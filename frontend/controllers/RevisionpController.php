@@ -65,10 +65,10 @@ class RevisionpController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel2  = new RevisionpSearch();
+        $searchModel2 = new RevisionpSearch();
         $dataProvider = $searchModel2->search(Yii::$app->request->queryParams);
         return $this->render('index', [
-                    'searchModel2'  => $searchModel2,
+                    'searchModel2' => $searchModel2,
                     'dataProvider' => $dataProvider,
         ]);
     }
@@ -155,14 +155,15 @@ class RevisionpController extends Controller
 
             if ($model->load(Yii::$app->request->post()))
             {
-                $model->num_revisiones = $model->num_revisiones + 1;
-
+                if (!Yii::$app->user->can('Secretario'))
+                {
+                    $model->num_revisiones = $model->num_revisiones + 1;
+                }
                 $archivo      = $model->descripcion;
                 $model->file1 = UploadedFile::getInstance($model, 'file1');
-                $model->file1->saveAS('RevisionesP/' . $archivo . '.' . $model->file1->extension);
-
+                //$model->file1->saveAS('RevisionesP/' . $archivo . '.' . $model->file1->extension);
                 // guardando el camino en la Bd columna
-                $model->archivo = 'RevisionesP/' . $archivo . '.' . $model->file1->extension;
+                //$model->archivo = 'RevisionesP/' . $archivo . '.' . $model->file1->extension;
 
                 $model->save(false);
                 return $this->redirect(['view', 'id' => $model->idrevisonp]);
