@@ -19,7 +19,9 @@ use Yii;
  */
 class Revisonp extends \yii\db\ActiveRecord
 {
-  public $file1;
+
+    public $file1;
+
     /**
      * @inheritdoc
      */
@@ -37,7 +39,7 @@ class Revisonp extends \yii\db\ActiveRecord
             [['correcion', 'archivo', 'estado', 'idproyecto'], 'required', 'message' => 'Campo Requerido'],
             [['estado'], 'string'],
             [['secretario_aprobado'], 'string'],
-            [[ 'file1'], 'file'],
+            [['file1'], 'file'],
             [['idproyecto', 'num_revisiones'], 'integer'],
             [['descripcion', 'correccion', 'archivo'], 'string', 'max' => 45],
             [['idproyecto'], 'exist', 'skipOnError' => true, 'targetClass' => Proyecto::className(), 'targetAttribute' => ['idproyecto' => 'idproyecto']],
@@ -50,23 +52,21 @@ class Revisonp extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idrevisonp' => 'Idrevisonp',
-            'descripcion' => 'Descripcion',
-            'correccion' => 'Correccion',
-            'archivo' => 'Archivo',
-            'estado' => 'Estado',
-            'idproyecto' => 'Proyecto',
-            'file1' => 'Archivo',
+            'idrevisonp'          => 'Idrevisonp',
+            'descripcion'         => 'Descripcion',
+            'correccion'          => 'Correccion',
+            'archivo'             => 'Archivo',
+            'estado'              => 'Estado',
+            'idproyecto'          => 'Proyecto',
+            'file1'               => 'Archivo',
             'secretario_aprobado' => 'Publicar',
-            'num_revisiones' => 'Nº revisiones'
+            'num_revisiones'      => 'Revision No'
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getIdproyecto0()
     {
         return $this->hasOne(Proyecto::className(), ['idproyecto' => 'idproyecto']);
     }
+
 }
