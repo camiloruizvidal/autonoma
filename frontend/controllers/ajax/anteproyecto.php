@@ -56,6 +56,7 @@ FROM
 ORDER BY
 `anteproyecto`.`estado`, 1 DESC";
     $data = conexion::records($sql);
+    $cant = conexion::records('');
     foreach ($data as $key => $temp)
     {
         $button = '<div class="btn-group" role="group">
