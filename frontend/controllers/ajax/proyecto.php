@@ -79,7 +79,7 @@ function iniciar()
           LEFT OUTER JOIN `jurado` `jurado1` ON (`jurado_has_proyecto`.`idjurado2` = `jurado1`.`idjurado`)
           {$where}
         ORDER BY
-          1 DESC";
+          `proyecto`.`estado` ASC";
   //exit('<pre>'.$sql.'</pre>');
     $data = conexion::records($sql);
     foreach ($data as $key => $temp)
