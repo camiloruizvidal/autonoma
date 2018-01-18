@@ -107,7 +107,7 @@ AppAsset::register($this);
                 ['label'   => 'Administrar', 'options' => ['class' => 'treeview-menu'], 'visible' => !Yii::$app->user->isGuest, 'items'   => [
                         ['label' => 'Gestionar Usuarios', 'url' => ['/user/index'], 'visible' => Yii::$app->user->can('Secretario')],
                         ['label' => 'Cambiar Contraseña', 'url' => ['/site/change-password']],
-                        ['label' => 'Registrar', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->can('Secretario')],
+                        //['label' => 'Registrar', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->can('Secretario')],
                         ['label' => 'Crear Jurado', 'url' => ['/jurado/index'], 'visible' => Yii::$app->user->can('Secretario')],
                         ['label' => 'Crear director', 'url' => ['/director-proyecto/index'], 'visible' => Yii::$app->user->can('Secretario')],
                     ],

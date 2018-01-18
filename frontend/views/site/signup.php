@@ -1,5 +1,5 @@
 <style> 
-    .yii-debug-toolbar__bar,nav, .btn-success,.breadcrumb{
+    .yii-debug-toolbar__bar,nav, .btn-success,.breadcrumb,.panel{
         display:none;
     }
     .container{
