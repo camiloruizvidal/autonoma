@@ -47,11 +47,14 @@ function iniciar()
   `anteproyecto`.`nombre`,
   `anteproyecto`.`estado`,
   `modalidad`.`nombre` AS `modalidad`,
+  COALESCE(`revision`.`descripcion`,'No ha sido revisado')  as revision,
+  COALESCE(`revision`.`estado`, 'No ha sido revisado') AS `estado_revision`,
   `anteproyecto`.`idanteproyecto`
 FROM
   `user`
   INNER JOIN `anteproyecto` ON (`user`.`id` = `anteproyecto`.`id`)
   INNER JOIN `modalidad` ON (`anteproyecto`.`idmodalidad` = `modalidad`.`idmodalidad`)
+  LEFT OUTER JOIN `revision` ON (`anteproyecto`.`idanteproyecto` = `revision`.`idanteproyecto`)
   {$where}
 ORDER BY
 `anteproyecto`.`estado`, 1 DESC";
@@ -86,7 +89,7 @@ ORDER BY
         $temp['idanteproyecto'] = $button;
         $data[$key]             = $temp;
     }
-    $encabezados = array('#', 'Fecha', 'Estudiante', 'Nombre', 'Publicado', 'Tipo', 'Opciones');
+    $encabezados = array('#', 'Fecha', 'Estudiante', 'Nombre', 'Publicado', 'Tipo', 'Revision','Estado revision','Opciones');
     $html        = '<table id="table_anteproyecto" class="table table-striped table-bordered">' . "\n";
     $html .= '  <thead>' . "\n";
     $html .= '  <tr>' . "\n";

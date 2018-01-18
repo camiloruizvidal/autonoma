@@ -80,7 +80,6 @@ function iniciar()
           {$where}
         ORDER BY
           `proyecto`.`estado` ASC";
-  //exit('<pre>'.$sql.'</pre>');
     $data = conexion::records($sql);
     foreach ($data as $key => $temp)
     {

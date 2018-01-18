@@ -138,7 +138,25 @@ $this->params['breadcrumbs'][] = $this->title;
             {
                 ?>
                 <p>
-                    <?= Html::button('Crear Proyecto', ['value' => Url::to('index.php?r=proyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
+                    <?php
+                    $sql      = "SELECT 
+  `revisonp`.`estado`
+FROM
+  `revisonp`
+  INNER JOIN `proyecto` ON (`revisonp`.`idproyecto` = `proyecto`.`idproyecto`)
+  INNER JOIN `user` ON (`proyecto`.`id` = `user`.`id`)
+WHERE
+    `user`.`id`=" . Yii::$app->user->id . " 
+        AND
+        (`revisonp`.`estado`='Aprobado'
+        OR
+        `revisonp`.`estado`='Corrección')";
+                    $download = Yii::$app->db->createCommand($sql)->queryAll();
+                    if (count($download) < 1)
+                    {
+                        echo Html::button('Crear Proyecto', ['value' => Url::to('index.php?r=proyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']);
+                    }
+                    ?>
 
                 </p>
                 <?php

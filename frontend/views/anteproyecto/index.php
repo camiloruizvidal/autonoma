@@ -18,9 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <link href="css/jquery/jquery-ui.min.css" rel="stylesheet"/>
 <script src="js/jquery/jquery-ui.min.js"></script>
-<script>
-
-</script>
 <script src="js/anteproyecto.js"></script>
 <style>
     table.dataTable tbody th, table.dataTable tbody td{
@@ -154,7 +151,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::encode($this->title) ?>
         </div>
         <div class="panel-body">
-            <?php // echo $this->render('_search', ['model' => $searchModel]);   ?>
+            <?php // echo $this->render('_search', ['model' => $searchModel]);      ?>
 
             <?php
             Modal::begin([
@@ -172,7 +169,39 @@ $this->params['breadcrumbs'][] = $this->title;
             {
                 ?>
                 <p>
-                    <?= Html::button('Crear Anteproyecto', ['value' => Url::to('index.php?r=anteproyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']) ?>
+                    <?php
+                    $sql       = "SELECT 
+                    COALESCE(`revision`.`estado`, 'No ha sido revisado') as cantidad
+                  FROM
+                    `user`
+                    INNER JOIN `anteproyecto` ON (`user`.`id` = `anteproyecto`.`id`)
+                    INNER JOIN `modalidad` ON (`anteproyecto`.`idmodalidad` = `modalidad`.`idmodalidad`)
+                    LEFT OUTER JOIN `revision` ON (`anteproyecto`.`idanteproyecto` = `revision`.`idanteproyecto`)
+                    WHERE
+                    `user`.`id`=" . Yii::$app->user->id . "
+                        AND
+                    (`revision`.`estado`='Aceptado'
+                    OR
+                    `revision`.`estado`='Corrección'
+                    OR
+                    COALESCE(`revision`.`estado`, 'No ha sido revisado')='No ha sido revisado')
+                      ";
+                    $sql2      = "SELECT 
+  COALESCE(`revisonp`.`estado`, 'No ha sido revisado') AS `cantidad`
+FROM
+  `revisonp`
+  INNER JOIN `proyecto` ON (`revisonp`.`idproyecto` = `proyecto`.`idproyecto`)
+WHERE
+  `proyecto`.`id` = " . Yii::$app->user->id . " AND 
+  (`revisonp`.`estado` = 'Corrección' OR 
+  `revisonp`.`estado` = 'Aceptado')";
+                    $download  = Yii::$app->db->createCommand($sql)->queryAll();
+                    $download1 = Yii::$app->db->createCommand($sql2)->queryAll();
+                    if (count($download) < 1 && count($download1) < 1)
+                    {
+                        echo Html::button('Crear Anteproyecto', ['value' => Url::to('index.php?r=anteproyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']);
+                    }
+                    ?>
                 </p>
                 <?php
             }
@@ -182,6 +211,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
     </div>
-
 </div>
 </div>
