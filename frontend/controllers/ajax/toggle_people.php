@@ -91,10 +91,13 @@ function guardar()
 {
     var id = $("#id_prorroga_value").val()
     $.ajax({
-        url: "../controllers/ajax/toggle_people.php",
+        url: "../controllers/ajax/prorroga.php",
+        type:\'POST\',
+        data:{id:id},
         success: function (data)
         {
-            $("#data_estudents").html(data);
+            $(\'#myModal\').modal(\'hide\');
+            location.reload();
         }
     });                        
 }
