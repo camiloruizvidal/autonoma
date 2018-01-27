@@ -47,8 +47,8 @@ function iniciar()
   `anteproyecto`.`nombre`,
   `anteproyecto`.`estado`,
   `modalidad`.`nombre` AS `modalidad`,
-  COALESCE(`revision`.`descripcion`,'No ha sido revisado')  as revision,
   COALESCE(`revision`.`estado`, 'No ha sido revisado') AS `estado_revision`,
+  COALESCE(`revision`.`num_revisiones`,0) as num_revisiones,
   `anteproyecto`.`idanteproyecto`
 FROM
   `user`
@@ -89,7 +89,7 @@ ORDER BY
         $temp['idanteproyecto'] = $button;
         $data[$key]             = $temp;
     }
-    $encabezados = array('#', 'Fecha', 'Estudiante', 'Nombre', 'Publicado', 'Tipo', 'Revision','Estado revision','Opciones');
+    $encabezados = array('#', 'Fecha', 'Estudiante', 'Nombre', 'Publicado', 'Tipo','Estado revision','No Revisiones','Opciones');
     $html        = '<table id="table_anteproyecto" class="table table-striped table-bordered">' . "\n";
     $html .= '  <thead>' . "\n";
     $html .= '  <tr>' . "\n";

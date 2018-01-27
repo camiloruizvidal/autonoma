@@ -24,6 +24,7 @@ function data()
   UPPER(CONCAT_WS(' ', `user`.`nombre`, `user`.`apellido`)) AS `user`,
   `user`.`facultad`,
   `user`.`fecha_fin`,
+  `user`.`created_at` as fecha_inicio,
   DATEDIFF(date(`user`.`fecha_fin`), date(now())) AS `dias`
 FROM
   `proyecto`
@@ -46,66 +47,24 @@ $html = '<style>
     .verde{background-color:green;color:#FFF;}
         </style>';
 $html.= '<table class="table">';
-$html.= '<tr><td>Estudiante</td><td>Días</td><td>Prorroga</td></tr>';
+$html.= '<tr><td>Estudiante</td><td>Días</td><td>Inicio</td><td>Fin</td><td>Prorroga</td></tr>';
 
 foreach ($data as $temp)
 {
-
-    $button = '';
+    $button = '<center>---</center>';
     $dias   = $temp['dias'];
     if ($temp['dias'] <= 0)
     {
-        $button = '<button  data-toggle="modal" data-target="#myModal" class="btn btn-primary" onclick="editar(' . $temp['id'] . ',\'' . $temp['user'] . '\')"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Prorroga</button>';
+        $button = '<button  data-toggle="modal" data-target="#myModal" class="btn btn-primary" onclick="editar(' . $temp['id'] . ',\'' . $temp['user'] . '\')"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Opciones</button>';
         $dias   = 'Venció hace ' . (-1 * $dias) . ' dias';
     }
     $html.='<tr class="' . class_color($temp['dias']) . '">';
     $html.='<td>' . $temp['user'] . '</td>';
-    $html.='<td>' . $dias . '</td>';
+    $html.='<td>' .$dias.'</td>';
+    $html.='<td>' . $temp['fecha_inicio'] . '</td>';
+    $html.='<td>' . $temp['fecha_fin'] . '</td>';
     $html.='<td>' . $button . '</td>';
     $html.='</tr>';
 }
 $html.='</table>';
-$html .= '<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Agregar Prorroga</h4>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="id_prorroga_value" value=""/>
-        El estudiante <h1 id="nombre_usuario">Nombre pendiente</h1> se le va a agregar 6 meses de prorroga.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="guardar();">Aceptar</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-function guardar()
-{
-    var id = $("#id_prorroga_value").val()
-    $.ajax({
-        url: "../controllers/ajax/prorroga.php",
-        type:\'POST\',
-        data:{id:id},
-        success: function (data)
-        {
-            $(\'#myModal\').modal(\'hide\');
-            location.reload();
-        }
-    });                        
-}
-function editar(id,name)
-{
-    $("#id_prorroga_value").val(id);
-    $("#nombre_usuario").html(name);
-}
-</script>
-';
 echo $html;

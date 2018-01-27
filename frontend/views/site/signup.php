@@ -25,6 +25,15 @@ use common\models\User;
 $this->title                   = 'Registro';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    body {
+    margin-top: 0px;
+}
+#main-content {
+    margin-left: 0px;
+}
+
+</style>
 <script>
     function validar(value)
     {
@@ -95,6 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
     }
     $(function ()
     {
+        $('#signupform-username').attr('placeholder','1nombre.1apellido.inicial2apellido');
         $.each($('.field-signupform-permissions .checkbox input'), function (index, value)
         {
             console.log($(value).html());
@@ -135,6 +145,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'email') ?>
     </div>
 </div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <label>Direccion</label>
+        <input type="text" class="form form-control">
+    </div>
+    <div class="col-md-12">
+        <label>Teléfono</label>
+        <input type="text" class="form form-control">
+    </div>
+
+</div>
 <div class="row">
     <div class="col-md-12">
         <?= $form->field($model, 'password')->passwordInput() ?>
@@ -144,6 +167,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php $authItems                     = ArrayHelper::map($authItems, 'name', 'name') ?>
         <?= $form->field($model, 'permissions')->checkBoxList($authItems); ?>
     </div>
+
+
+
+
+
+
+
+
+
+
 </div>
 <?= Html::submitButton('Registrar', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
 <?php ActiveForm::end(); ?>

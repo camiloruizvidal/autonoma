@@ -62,21 +62,24 @@ function iniciar()
         $where = ' WHERE ' . "\n" . implode("\n" . ' and ' . "\n", $where);
     }
     $sql  = "SELECT 
-        concat_ws(' ', `user`.`nombre`, `user`.`apellido`) AS `estudiante`,
-        `proyecto`.`nombre`,
-        `proyecto`.`descripcion`,
+        UPPER(concat_ws(' ', `user`.`nombre`, `user`.`apellido`)) AS `estudiante`,
+        UPPER(`proyecto`.`nombre`) as nombre,
+        UPPER(`director_proyecto`.`nombre`) as director,
         date_format(`proyecto`.`date_create`,'%d-%m-%Y') as fecha,
         DATEDIFF(date(`user`.`fecha_fin`),date(now())) as dias,
-        COALESCE(`jurado`.`nombre`, 'No asignado') AS `ju1`,
-        COALESCE(`jurado1`.`nombre`, 'No asignado') AS `ju2`,
+        COALESCE(UPPER(`jurado`.`nombre`), 'No asignado') AS `ju1`,
+        COALESCE(UPPER(`jurado1`.`nombre`), 'No asignado') AS `ju2`,
         `proyecto`.`estado`,
         `proyecto`.`idproyecto` 
         FROM
           `proyecto`
-          INNER JOIN `user` ON (`proyecto`.`id` = `user`.`id`)
-          LEFT OUTER JOIN `jurado_has_proyecto` ON (`proyecto`.`idproyecto` = `jurado_has_proyecto`.`idproyecto`)
-          LEFT OUTER JOIN `jurado` ON (`jurado_has_proyecto`.`idjurado` = `jurado`.`idjurado`)
-          LEFT OUTER JOIN `jurado` `jurado1` ON (`jurado_has_proyecto`.`idjurado2` = `jurado1`.`idjurado`)
+            INNER JOIN `user` ON (`proyecto`.`id` = `user`.`id`)
+              LEFT OUTER JOIN `jurado_has_proyecto` ON (`proyecto`.`idproyecto` = `jurado_has_proyecto`.`idproyecto`)
+              LEFT OUTER JOIN `jurado` ON (`jurado_has_proyecto`.`idjurado` = `jurado`.`idjurado`)
+              LEFT OUTER JOIN `jurado` `jurado1` ON (`jurado_has_proyecto`.`idjurado2` = `jurado1`.`idjurado`)
+              INNER JOIN `director_proyecto_por_proyecto` ON (`proyecto`.`idproyecto` = `director_proyecto_por_proyecto`.`idproyecto`)
+              INNER JOIN `director_proyecto` ON (`director_proyecto_por_proyecto`.`iddirector_proyecto` = `director_proyecto`.`iddirector_proyecto`)
+
           {$where}
         ORDER BY
           `proyecto`.`estado` ASC";
@@ -109,7 +112,7 @@ function iniciar()
         $temp['idproyecto'] = $button;
         $data[$key]         = $temp;
     }
-    $encabezados = array('#', 'Estudiante', 'Titulo', 'Descripción', 'Fecha de creacion', 'Dias restantes', 'Jurado<br/>No 1', 'Jurado<br/>No 2', 'Publicado', 'Opciones');
+    $encabezados = array('#', 'Estudiante', 'Titulo','Director', 'Fecha de creacion', 'Dias restantes', 'Jurado<br/>No 1', 'Jurado<br/>No 2', 'Publicado', 'Opciones');
     $html        = '<table id="table_proyecto" class="table table-striped table-bordered">' . "\n";
     $html .= '  <thead>' . "\n";
     $html .= '  <tr>' . "\n";
