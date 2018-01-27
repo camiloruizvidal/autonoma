@@ -151,11 +151,17 @@ if (Yii::$app->user->isGuest)
                 $interval = $datetime2->diff($datetime1);
                 if ($datetime1 <= $datetime2)
                 {
-                    echo '<div class = "alert alert-danger" role = "alert">
-                    <span class = "glyphicon glyphicon-exclamation-sign" aria-hidden = "true"></span>
+                    echo '<div class = "alert alert-danger" role = "alert" style="font-size: 35px;">
+                    <center>
+                    
                     <span class = "sr-only">Error:</span>
-                    Su tiempo para realizar su trabajo de grado termino. Su plazo máximo era para el dia ' . $Fechafin . '
+                    Su tiempo para realizar su trabajo de grado termino. Su plazo máximo era para el dia ' . $Fechafin . '<br/>
+                    Por favor dirijase a su facultad para poder continuar con el debido proceso.
+                    <br/>
+                    <span class = "glyphicon glyphicon-exclamation-sign" aria-hidden = "true"></span>
+                    </center>
                     </div>
+
                     <style>#btn_regresar,.container-fluid{display:none;}</style>';
 //                    exit;
                 }
