@@ -15,6 +15,7 @@ use Yii;
  */
 class SustentacionFinal extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -32,6 +33,7 @@ class SustentacionFinal extends \yii\db\ActiveRecord
             [['fecha', 'idproyecto', 'lugar'], 'required', 'message' => 'Campo Requerido'],
             [['fecha', 'lugar'], 'safe'],
             [['idproyecto'], 'integer'],
+            [['estados'], 'varchar'],
             [['idproyecto'], 'exist', 'skipOnError' => true, 'targetClass' => Proyecto::className(), 'targetAttribute' => ['idproyecto' => 'idproyecto']],
         ];
     }
@@ -43,8 +45,9 @@ class SustentacionFinal extends \yii\db\ActiveRecord
     {
         return [
             'idsustentacion_final' => 'Idsustentacion Final',
-            'fecha' => 'Fecha',
-            'idproyecto' => 'Proyecto',
+            'fecha'                => 'Fecha',
+            'idproyecto'           => 'Proyecto',
+            'estados'              => 'estados'
         ];
     }
 
@@ -55,4 +58,5 @@ class SustentacionFinal extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Proyecto::className(), ['idproyecto' => 'idproyecto']);
     }
+
 }

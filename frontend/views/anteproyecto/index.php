@@ -34,8 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <input type="hidden" id="id_estudiante" name="id_estudiante" value="<?php echo Yii::$app->user->id; ?>"/>
         </form>
         <?php
-    }
-    else
+    } else
     {
         ?>
         <div class="col-md-12">
@@ -55,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                         <div class="col-xs-12">
-                            <label>Proyecto</label>
+                            <label>Proyecto o radicado</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="proyecto" id="proyecto" placeholder="nombre">
                                 <span class="input-group-btn">
@@ -80,8 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </span>
                                     </div>
                                 </div>';
-                        }
-                        else
+                        } else
                         {
                             echo '<div class="col-xs-6">
                                     <label>Tipo</label>
@@ -133,22 +131,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
         </div>
-        <?php
-    }
-    ?>
+    <?php
+}
+?>
     <?php
     if (Yii::$app->user->can('Estudiante'))
     {
         echo '<div class="col-md-12">';
-    }
-    else
+    } else
     {
         echo '<div class="col-md-12">';
     }
     ?>
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <?= Html::encode($this->title) ?>
+    <?= Html::encode($this->title) ?>
         </div>
         <div class="panel-body">
             <?php // echo $this->render('_search', ['model' => $searchModel]);      ?>
@@ -169,8 +166,8 @@ $this->params['breadcrumbs'][] = $this->title;
             {
                 ?>
                 <p>
-                    <?php
-                    $sql       = "SELECT 
+                <?php
+                $sql       = "SELECT 
                     COALESCE(`revision`.`estado`, 'No ha sido revisado') as cantidad
                   FROM
                     `user`
@@ -186,7 +183,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     OR
                     COALESCE(`revision`.`estado`, 'No ha sido revisado')='No ha sido revisado')
                       ";
-                    $sql2      = "SELECT 
+                $sql2      = "SELECT 
   COALESCE(`revisonp`.`estado`, 'No ha sido revisado') AS `cantidad`
 FROM
   `revisonp`
@@ -195,20 +192,19 @@ WHERE
   `proyecto`.`id` = " . Yii::$app->user->id . " AND 
   (`revisonp`.`estado` = 'Corrección' OR 
   `revisonp`.`estado` = 'Aceptado')";
-                    $download  = Yii::$app->db->createCommand($sql)->queryAll();
-                    $download1 = Yii::$app->db->createCommand($sql2)->queryAll();
-                    if (count($download) < 1 && count($download1) < 1)
-                    {
-                        echo Html::button('Crear Anteproyecto', ['value' => Url::to('index.php?r=anteproyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']);
-                    }
-                    ?>
+                $download  = Yii::$app->db->createCommand($sql)->queryAll();
+                $download1 = Yii::$app->db->createCommand($sql2)->queryAll();
+                if (count($download) < 1 && count($download1) < 1)
+                {
+                    echo Html::button('Crear Anteproyecto', ['value' => Url::to('index.php?r=anteproyecto/create'), 'class' => 'btn btn-primary', 'id' => 'modalButton']);
+                }
+                ?>
                 </p>
-                <?php
-            }
-            ?>
+                    <?php
+                }
+                ?>
             <div id="data"></div>
             <?php Pjax::begin(); ?>
-
         </div>
     </div>
 </div>

@@ -14,7 +14,9 @@ function iniciar()
         }
         if ($_POST['proyecto'] != '')
         {
-            $where[] = ' trim(LOWER(`anteproyecto`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['proyecto'])) . '%\' ';
+            $where[] = ' trim(LOWER(`anteproyecto`.`nombre`)) LIKE \'%' . trim(strtolower($_POST['proyecto'])) . '%\' '
+                    . ' OR '
+                    . ' trim(LOWER(`anteproyecto`.`radicado`)) LIKE \'%' . trim(strtolower($_POST['proyecto'])) . '%\' ';
         }
         if ($_POST['idmodalidad'] != '-1')
         {
@@ -32,8 +34,7 @@ function iniciar()
         {
             $where[] = ' date(`anteproyecto`.`date_create`)<= date("' . $_POST['fin'] . '") ';
         }
-    }
-    else
+    } else
     {
         $where[] = ' `anteproyecto`.`id` = ' . $_POST['id_estudiante'] . ' ';
     }
@@ -44,7 +45,7 @@ function iniciar()
     $sql  = "SELECT 
   DATE_FORMAT(`anteproyecto`.`date_create`,'%d-%m-%Y') as fecha_creado,
   CONCAT_WS(' ', `user`.`nombre`, `user`.`apellido`) AS `estudiante`,
-  `anteproyecto`.`nombre`,
+  CONCAT('RD:(',COALESCE(`anteproyecto`.`radicado`,'NN'),') ',`anteproyecto`.`nombre`) as nombre,
   `anteproyecto`.`estado`,
   `modalidad`.`nombre` AS `modalidad`,
   COALESCE(`revision`.`estado`, 'No ha sido revisado') AS `estado_revision`,
@@ -75,32 +76,31 @@ ORDER BY
             $temp['estado'] = 'NO';
             if (!isset($_POST['id_estudiante']))
             {
-                $button .= '<li><a href="index.php?r=anteproyecto%2Fpublic&id=' . $temp['idanteproyecto'] . '" title="Publicar" aria-label="Publicar" data-pjax="0" data-confirm="¿Esta seguro que desea publicar este proyecto?" data-method="post"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>
+                $button .= '<li><a href="javascript:publicar(' . $temp['idanteproyecto'] . ')"><span class="glyphicon glyphicon-ok"></span> Publicar</a></li>
                   ';
             }
-        }
-        else
+        } else
         {
             $temp['estado'] = 'SI';
         }
-        $button .= '<li><a href="index.php?r=anteproyecto%2Fview&id=' . $temp['idanteproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-zoom-in"></span> Detalle</a></li>
+        $button                 .= '<li><a href="index.php?r=anteproyecto%2Fview&id=' . $temp['idanteproyecto'] . '" title="Update" aria-label="Update" data-pjax="0"><span class="glyphicon glyphicon-zoom-in"></span> Detalle</a></li>
                 </ul>
               </div>';
         $temp['idanteproyecto'] = $button;
         $data[$key]             = $temp;
     }
-    $encabezados = array('#', 'Fecha', 'Estudiante', 'Nombre', 'Publicado', 'Tipo','Estado revision','No Revisiones','Opciones');
+    $encabezados = array('#', 'Fecha', 'Estudiante', 'Radicado y Nombre', 'Publicado', 'Tipo', 'Estado revision', 'No Revisiones', 'Opciones');
     $html        = '<table id="table_anteproyecto" class="table table-striped table-bordered">' . "\n";
-    $html .= '  <thead>' . "\n";
-    $html .= '  <tr>' . "\n";
+    $html        .= '  <thead>' . "\n";
+    $html        .= '  <tr>' . "\n";
     foreach ($encabezados as $key => $temp)
     {
 
-        $html.='        <th>' . $temp . '</th>' . "\n";
+        $html .= '        <th>' . $temp . '</th>' . "\n";
     }
-    $html.='    </tr>' . "\n";
-    $html.='    </thead>' . "\n";
-    $html.='    <tbody>' . "\n";
+    $html .= '    </tr>' . "\n";
+    $html .= '    </thead>' . "\n";
+    $html .= '    <tbody>' . "\n";
     for ($i = 0; $i < count($data); $i++)
     {
         $color = ' class="danger" ';
@@ -108,17 +108,17 @@ ORDER BY
         {
             $color = ' class="success" ';
         }
-        $html.='        <tr' . $color . '>' . "\n";
+        $html .= '        <tr' . $color . '>' . "\n";
 
-        $html.='            <td>' . ($i + 1) . '</td>' . "\n";
+        $html .= '            <td>' . ($i + 1) . '</td>' . "\n";
         foreach ($data[$i] as $key => $temp)
         {
-            $html.='            <td>' . $temp . '</td>' . "\n";
+            $html .= '            <td>' . $temp . '</td>' . "\n";
         }
-        $html.='        </tr>' . "\n";
+        $html .= '        </tr>' . "\n";
     }
-    $html.='    </tbody>' . "\n";
-    $html.='</table>';
+    $html .= '    </tbody>' . "\n";
+    $html .= '</table>';
     echo $html;
 }
 

@@ -47,19 +47,17 @@ $this->params['breadcrumbs'][] = $this->title;
             <?=
             GridView::widget([
                 'dataProvider' => $dataProvider,
-                //'filterModel' => $searchModel,
                 'columns'      => [
                     ['class' => 'yii\grid\SerialColumn'],
-                    //'idsustentacion_final',
                     'lugar',
                     'fecha',
-                    [ // asi se establece un campo de otra tabla con el searching GridView
+                    [
                         'attribute' => 'idproyecto',
                         'value'     => 'idproyecto0.nombre',
                     ],
-                    //['class' => 'yii\grid\CheckBoxColumn'],
+                    'estados',
                     ['visible' => Yii::$app->user->can('Secretario'),
-                        'class'   => 'yii\grid\ActionColumn',]
+                        'class'   => 'yii\grid\ActionColumn'],
                 ],
             ]);
             ?>
